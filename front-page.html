@@ -18,17 +18,26 @@
     <div class="header">
         <div class="container">
             <div class="row">
+    <div class="logo before d-none d-sm-none d-md-none d-lg-block col-1">
+            <a href="index.html" title="Home">
+                <img src="assets/img/logo.png" alt="Logo">
+            </a>
+        </div>
                 <!-- MENU -->
-                <div class="menu before col-4 col-lg-9">
+                <div class="menu before col-4 col-lg-9 active">
                     <span class="menu-icon  d-lg-none before" title="Menu">Menu</span>
 					<div class="menu-content">
 	                <ul class="main">
 	                    <li>
-							<a class="home-navi active" href="index.html" title="Home">Home</a>
+							<div class="menu-item-title">
+								<a class="home-navi active" href="index.html" title="Home">Home</a>
+							</div>
 						</li>
 	                    <li class="submenu-button">
-	                        <a class="product-navi" href="nossos-produtos.html" title="Produtos">Productos</a>
-	                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
+							<div class="menu-item-title">
+		                        <a class="product-navi" href="nossos-produtos.html" title="Produtos">Productos</a>
+		                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
+							</div>
 							<span class="menusub-ico">
 	                            <img src="asset/img/public/menusub-ico.png">
 	                        </span>
@@ -39,8 +48,10 @@
 	                        </ul>
 	                    </li>
 	                    <li class="submenu-button">
-	                        <a  class="articles-navi" href="javascript:;" title="Artigos">Todo Sobre Perros</a>
-	                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
+							<div class="menu-item-title">
+	                        	<a class="articles-navi" href="javascript:;" title="Artigos">Todo Sobre Perros</a>
+	                        	<div class="down-button"><i class="fas fa-sort-down"></i></div>
+							</div>
 							<span class="menusub-ico">
 	                            <img src="asset/img/public/menusub-ico.png">
 	                        </span>
@@ -50,11 +61,13 @@
 	                        </ul>
 	                    </li>
 	                    <li class="submenu-button">
-	                        <a class="articles-navi" href="javascript:;" title="Artigos">Adopción Pedigree</a>
-	                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
-							<span class="menusub-ico">
-	                            <img src="asset/img/public/menusub-ico.png">
-	                        </span>
+							<div class="menu-item-title">
+		                        <a class="articles-navi" href="javascript:;" title="Artigos">Adopción Pedigree</a>
+		                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
+								<span class="menusub-ico">
+		                            <img src="asset/img/public/menusub-ico.png">
+		                        </span>
+							</div>
 	                        <ul class="menu-sub">
 	                            <li><a href="artigos/filhotes.html">¿Qué es?</a></li>
 	                            <li><a href="artigos/filhotes.html">Refugios Amigos</a></li>
@@ -64,13 +77,13 @@
 	                        </ul>
 	                    </li>
 	                    <li>
-							<a target="_blank" href="https://www.abcdogs.com.br/" title="ABCdogs">Acerca de Pedigree</a>
+							<div class="menu-item-title">
+								<a target="_blank" href="https://www.abcdogs.com.br/" title="ABCdogs">Acerca de Pedigree</a>
+							</div>
 						</li>
-	                    <li class="search">
-							<a class="search-navi" href="busca.html" title="Busca">Buscar</a>
-						</li>
+
 	                </ul>
-	                <div class="mobile-toparea visible-md visible-sm visible-xs">
+	                <div class="mobile-toparea d-sm-none d-md-none d-lg-none d-xl-none">
 	                    <ul class="social">
 	                        <li>
 								<span class="fa-stack fa-2x">
@@ -100,6 +113,27 @@
                         <img src="assets/img/logo.png" alt="Logo">
                     </a>
                 </div>
+   <div class="toparea before d-none d-sm-none d-md-none  d-lg-block col-sm-2">
+            <ul class="social">
+	                        <li>
+								<span class="fa-stack fa-2x">
+                                	<i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                	<i class="fab fa-facebook-f fa-stack-1x"></i>
+                            	</span>
+							</li>
+	                        <li>
+								<span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </span>
+							</li>
+	                        <li>
+								<span class="fa-stack fa-2x">
+                                  <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                  <i class="fab fa-youtube fa-stack-1x"></i>
+                                </span>
+							</li>
+	                    </ul></div>
             </div>
         </div>
     </div>
@@ -119,7 +153,7 @@
                                 <p>O novo PEDIGREE® Vital Pro para Raças Pequenas é feito especialmente para suprir as necessidades específicas de cães de pequeno porte. </p>
                             </div>
                         </div>
-                        <div class="middle d-none d-sm-block before col-sm-2">
+                        <div class="middle d-none d-sm-none d-md-block before col-sm-2">
                             <img src="assets/img/banner/bnnr4-bg.png">
                         </div>
                         <div class="right before col-12 col-sm-5">
@@ -140,9 +174,9 @@
 					<div class="title">
 						<h1 class="scr">Conheça nossa linha de produtos</h1>
 					</div>
-                    <div class="row">
+                    <div class="row products-list">
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">ALIMENTOS SECOS</h1>
@@ -162,7 +196,7 @@
                             </div>
                         </div>
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">ALIMENTOS ÚMIDOS</h1>
@@ -182,7 +216,7 @@
                             </div>
                         </div>
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">PETISCOS</h1>
@@ -217,7 +251,7 @@
                                 <p>O novo PEDIGREE® Dentastix reduz em até 80% a formação de tártaro.</p>
                             </div>
                         </div>
-                        <div class="middle d-none d-sm-block before col-sm-2">
+                        <div class="middle d-none d-sm-none d-md-block before col-sm-2">
                             <img src="assets/img/banner/bnnr5-bg.png">
                         </div>
                         <div class="right before col-12 col-sm-5">
@@ -239,9 +273,9 @@
 					<div class="title">
 						<h1 class="scr">Conheça nossa linha de produtos</h1>
 					</div>
-                    <div class="row">
+                    <div class="row products-list">
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">ALIMENTOS SECOS</h1>
@@ -261,7 +295,7 @@
                             </div>
                         </div>
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">ALIMENTOS SECOS</h1>
@@ -281,7 +315,7 @@
                             </div>
                         </div>
                         <!-- PRODUCT BLOCK -->
-                        <div class="list-item col-12 col-sm-6 col-md-3">
+                        <div class="list-item col-12 col-sm-6 col-lg-3">
                             <div class="product">
                                 <div class="title col-12">
                                     <h1 class="pedigree-yellow-color pedigree-light">ALIMENTOS SECOS</h1>
@@ -316,7 +350,7 @@
                                 <p>Uma maneira prática e deliciosa de alimentar seu cão.</p>
                             </div>
                         </div>
-                        <div class="middle d-none d-sm-block before col-sm-2">
+                        <div class="middle d-none d-sm-none d-md-block before col-sm-2">
                             <img src="assets/img/banner/bnnr5-bg.png">
                         </div>
                         <div class="right before col-12 col-sm-5">
@@ -440,5 +474,7 @@
         </div>
     </div>
     <!-- FOOTER -->
+
+
 </body>
 </html>

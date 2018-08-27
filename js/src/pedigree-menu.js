@@ -15,10 +15,26 @@ $(document).ready(function(){
         $menu.removeClass('active');
     }
 
+    // =========================================================================
+    // Toggle menu
+    // =========================================================================
     $menuButton.on('click', function(){
         if( menuIsOpen() )
             closeMenu();
         else
             openMenu();
+    });
+    // =============================================================================
+    // Toggle submenu
+    // =============================================================================
+    $menu.on('click', '.submenu-button .down-button', function(){
+        var $submenu = $(this).closest('.submenu-button');
+        var isOpen = $submenu.hasClass('active');
+        //If the submenu is open
+        if( isOpen ){
+            $submenu.removeClass('active');
+        }
+        else
+            $submenu.addClass('active');
     });
 });

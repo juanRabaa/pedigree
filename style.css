@@ -147,7 +147,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 }
 
 .container{
-    max-width: 1140px;
+    max-width: 1024px;
 }
 
 .underline {
@@ -394,6 +394,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
 }
 
+@media (min-width: 576px){
+    .teaser .center .left {
+        text-align: left;
+        vertical-align: middle;
+    }
+}
+
 /* ========================================================================== */
 /* SECTOR */
 /* ========================================================================== */
@@ -426,7 +433,8 @@ h1, h2, h3, h4, h5, h6 {
 /* LISTS */
 /* ========================================================================== */
 .list .list-item .product .title {
-    margin-bottom: 5.6rem;
+    /* margin-bottom: 5.5rem; */
+    min-height: 6.5rem;
 }
 
 .list-item .title > h4 {
@@ -451,6 +459,40 @@ h1, h2, h3, h4, h5, h6 {
 .list .list-item .product .title > * {
     font-size: 2.4rem;
 }
+
+.row.products-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 576px){
+    .list .list-item .product .image {
+        height: 25rem;
+    }
+
+    .list .center .list-item .image:before {
+        content: '';
+        display: inline-block;
+        vertical-align: bottom;
+        height: 100%;
+    }
+
+}
+
+
+
+@media screen and (min-width: 992px){
+    .sec .center .title > * {
+        font-size: 4.5rem;
+    }
+
+    .list .list-item .product .title > *{
+        font-size: 3rem;
+    }
+}
+
+
 /* ========================================================================== */
 /* FOOTER */
 /* ========================================================================== */
@@ -537,7 +579,7 @@ ul.social .fa-stack:not(.reverse):hover i:not(.fa-circle) {
 
 ul.social {
     list-style:  none;
-    margin: 1.3rem 0;
+    /* margin: 1.3rem 0; */
 }
 
 ul.social li {
@@ -606,6 +648,33 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     color: #000;
 }
 
+@media (min-width:576px){
+    .footer-top .menu2 ul li{
+        border: 0;
+    }
+
+    .footer-top .menu2 ul li a{
+        margin-bottom: 0;
+    }
+
+    .footer-top .logo {
+        text-align: right;
+    }
+
+    .footer-top .logo img{
+        width: 15rem;
+    }
+
+    .footer-bottom .left {
+        text-align: left;
+        font-size: 1.2rem;
+    }
+
+    ul.social li{
+        margin: 0;
+    }
+}
+
 /* ========================================================================== */
 /* MENU */
 /* ========================================================================== */
@@ -641,8 +710,6 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     text-align: left;
     background: #ffcf49;
     margin-bottom: 0.3rem;
-    padding: 0.5rem 1.5rem;
-    padding-right: 1rem;
 }
 
 .menu ul li {
@@ -680,7 +747,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.5rem;
-    color: #000 !important;
+    color: #000;
     padding:  0;
 }
 
@@ -719,7 +786,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     background-color: #000;
 }
 
-.menu .menu-content .main li.submenu-button.active a {
+.menu .menu-content .main li.submenu-button.active a, .menu .menu-content .main li.submenu-button.active i {
     color: #fec118 !important;
 }
 
@@ -811,14 +878,124 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     width: 80%;
 }
 
-.menu .menu-content .main li.submenu-button > .down-button {
+.menu .menu-content .main li.submenu-button .down-button {
     width:  20%;
     display:  inline-block;
     text-align:  right;
     color: #000000;
     height: 2.5rem;
-    /* display:  flex; */
-    align-items:  center;
-    text-align:  right;
     cursor: pointer;
+}
+
+.menu .menu-content .main li .menu-item-title {
+    padding: 0.5rem 1.5rem;
+    display: flex;
+}
+
+.menu .menu-content .main li .menu-item-title {
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    /* border-right: 2px solid; */
+    /* border-color: rgba(0, 0, 0, 0.21); */
+}
+
+.menu .menu-content .main li.submenu-button.active .down-button i {
+    transform: rotate(180deg);
+    top: 0.5rem;
+}
+
+.menu .menu-content .main li.submenu-button .down-button i {
+    transition: all 0.5s;
+}
+
+/* ========================================================================== */
+/* HEADER DESKTOP */
+/* ========================================================================== */
+@media (min-width: 992px){
+    .header {
+        position: absolute;
+        background: none;
+        border-bottom: none;
+    }
+
+    .header .container > .row{
+        height: 11rem;
+        display:  flex;
+        align-items:  center;
+    }
+
+    #main-content {
+        margin-top: 0;
+    }
+
+    .sec.slider.home{
+        height: 63rem;
+    }
+
+    .menu {
+        padding: 0;
+        height: 100%;
+        text-align: left;
+        display:  flex;
+        align-items:  center;
+    }
+
+     .menu .menu-content {
+        display: inline-block;
+        background-color:  transparent;
+        border:  0;
+    }
+
+    .menu .menu-content .main li {
+        float: left;
+        position: relative;
+        text-align: center;
+        display: inline-block;
+        background-color: transparent;
+        width: auto;
+    }
+
+    .home .header .menu ul li a {
+        color: #FFF;
+        border-color: black;
+        border-color: rgba(0, 0, 0, 0.21);
+    }
+
+    .menu .menu-content .main li.submenu-button .down-button{
+        display: none;
+    }
+
+    .menu .menu-content .main li a {
+        color: #FFF;
+        border-color: black;
+        border-color: rgba(0, 0, 0, 0.21);
+        font-size: 1.4rem;
+        padding: 0 1rem;
+    }
+
+    .header .menu ul li a.active {
+        color: #000;
+    }
+
+    .header .logo a {
+        visibility: hidden;
+    }
+
+    ul.social {
+        margin: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .toparea.before.d-none.d-sm-none.d-md-none.d-lg-block.col-sm-2 {
+        text-align:  right;
+    }
+
+     .menu .menu-content .main li a:hover {
+        color: #000;
+    }
+
+    .menu .menu-content .main li .menu-item-title {
+        border-right: 2px solid;
+        border-color: rgba(0, 0, 0, 0.21);
+    }
 }
