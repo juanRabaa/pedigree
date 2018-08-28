@@ -1156,6 +1156,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     left: 25%;
     text-align:  center;
     margin-bottom: 2rem;
+    user-select: none;
 }
 
 .slider.home .slides-pagination .bullet {
