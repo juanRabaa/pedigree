@@ -10,6 +10,16 @@ $(document).ready(function(){
     var autoInterval = null;
     var intervalTimeout = null;
 
+    function loadImages(){
+        images.forEach(function(imgSrc){
+            var image = new Image();
+            image.src = imgSrc;
+            image.onload = function(){
+                console.log(imgSrc);
+            };
+        });
+    }
+
     function setCurrentImage(){
         $slide.css('background-image', 'url('+ images[index] +')');
         setCurrentBullet();
@@ -58,4 +68,5 @@ $(document).ready(function(){
         setCurrentImage();
     });
 
+    loadImages();
 });
