@@ -7,9 +7,10 @@ $(document).ready(function(){
 
     var images = ['assets/img/dog.jpg', 'assets/img/dog2.jpg', 'assets/img/dog3.jpg', 'assets/img/dog4.jpg'];
     var index = 0;
+    var autoInterval = null;
+    var intervalTimeout = null;
 
     function setCurrentImage(){
-        console.log(index);
         $slide.css('background-image', 'url('+ images[index] +')');
         setCurrentBullet();
     }
@@ -19,17 +20,36 @@ $(document).ready(function(){
         $($bullets[index])  .addClass('active');
     }
 
+    function setNextIndex(){
+        if(index == images.length - 1)
+            index = -1;
+        index++;
+    }
+
+    function setAutoInterval(){
+        autoInterval = setInterval(function(){
+            setNextIndex();
+            setCurrentImage();
+        }, 3000);
+    }
+
+    function resetAutoInterval(){
+        clearInterval(autoInterval);
+        setTimeout(function(){
+            setAutoInterval();
+        }, 3000);
+    }
+
     $leftButton.on('click', function(){
         if(index == 0)
             index = images.length;
         index--;
+        cleanAutoInterval();
         setCurrentImage();
     });
 
     $rightButton.on('click', function(){
-        if(index == images.length - 1)
-            index = -1;
-        index++;
+        setNextIndex();
         setCurrentImage();
     });
 
@@ -37,4 +57,6 @@ $(document).ready(function(){
         index = $(this).index();
         setCurrentImage();
     });
+
+    setAutoInterval();
 });
