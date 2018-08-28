@@ -261,6 +261,11 @@ h1, h2, h3, h4, h5, h6 {
     height: 5rem;
     top: 0;
     z-index:  1;
+    /* transition: all 0.3s; */
+}
+
+.header-placeholder {
+    display: none;
 }
 
 .logo a img {
@@ -299,6 +304,7 @@ h1, h2, h3, h4, h5, h6 {
 /*HOME SLIDER*/
 #main-content {
     margin-top: 4.8rem;
+    /* transition:  all 0.3s; */
 }
 
 .slider.home {
@@ -306,10 +312,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f8ae0e;
     padding-top:  0;
     padding-bottom: 0;
-    background-image: url(assets/img/slider/s3-xs.jpg);
+    background-image: url(assets/img/dog.jpg);
     background-position:  center;
     background-size: cover;
     background-repeat:  no-repeat;
+}
+
+.header.fixed {
+    position: fixed;
+    height: 5rem;
 }
 
 /* ========================================================================== */
@@ -492,14 +503,25 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
 /* ========================================================================== */
-/* FOOTER */
+/* SEPARATOR */
 /* ========================================================================== */
 .sec.separator {
     padding:  0;
 }
 
+.sec.separator > .separator-image {
+    height: 40vh;
+    min-height: 15rem;
+    background-position:  center;
+    background-size:  cover;
+    background-repeat:  no-repeat;
+    /* background-attachment:  fixed; */
+}
+
+/* ========================================================================== */
+/* FOOTER */
+/* ========================================================================== */
 .sec.footer-top {
     padding-top: 0;
     padding-bottom: 0;
@@ -586,6 +608,7 @@ ul.social li {
 	display:  inline-block;
 	font-size: 0.6rem;
 	margin:  0 8px;
+	cursor: pointer;
 }
 
 ul.social .fa-stack.reverse i + i {
@@ -673,6 +696,10 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     ul.social li{
         margin: 0;
     }
+
+    .footer-top ul.social li{
+        margin-top: 1.8rem;
+    }
 }
 
 /* ========================================================================== */
@@ -680,7 +707,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 /* ========================================================================== */
 .menu .menu-content {
     display: none;
-    width: 100%;
+    width: 150%;
     overflow-y: auto;
     background: #fec118;
     padding: 0 1.5rem;
@@ -913,7 +940,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 /* ========================================================================== */
 @media (min-width: 992px){
     .header {
-        /* position: absolute; */
+        position: absolute;
         /* background: none; */
         border-bottom: none;
         height: 11rem;
@@ -927,7 +954,18 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     }
 
     #main-content {
-        margin-top: 11rem;
+        margin-top: 0;
+    }
+
+    .header-placeholder {
+        display: block;
+        height: 11rem;
+        background-color: #fec118;
+        transition: all 0.3s;
+    }
+
+    .header.fixed + #main-content {
+        /* margin-top: 5rem; */
     }
 
     .sec.slider.home{
@@ -946,6 +984,8 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
         display: inline-block;
         background-color:  transparent;
         border:  0;
+        width: auto;
+        padding-bottom: 0;
     }
 
     .menu .menu-content .main li {
@@ -980,12 +1020,17 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     }
 
     .header .logo a {
-        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    .header.fixed .logo a{
+        opacity: 1;
     }
 
     ul.social {
         /* margin: 0; */
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
     }
 
     .footer-top ul.social{
@@ -994,6 +1039,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 
     .toparea.before.d-none.d-sm-none.d-md-none.d-lg-block.col-sm-2 {
         text-align:  right;
+        display:  flex;
     }
 
      .menu .menu-content .main li a:hover {

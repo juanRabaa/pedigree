@@ -37,4 +37,25 @@ $(document).ready(function(){
         else
             $submenu.addClass('active');
     });
+
+
+    // =========================================================================
+    // MENU FIXED
+    // =========================================================================
+    $(document).on('scroll', function(){
+    	var htmlOffsetTop = $(window).scrollTop();
+    	var $header = $('.header');
+        var $placeHolder = $('.header-placeholder');
+
+        if (htmlOffsetTop <= 30){
+            $header.removeClass('fixed');
+            $placeHolder.height( 110 );
+            $header.height( 110 );
+        }
+        else{
+            $header.addClass('fixed');
+            $header.height( 50 );
+            $placeHolder.height( 84 );
+        }
+    })
 });
