@@ -312,10 +312,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f8ae0e;
     padding-top:  0;
     padding-bottom: 0;
-    background-image: url(assets/img/dog.jpg);
-    background-position:  center;
-    background-size: cover;
-    background-repeat:  no-repeat;
+    position:  relative;
 }
 
 .header.fixed {
@@ -823,7 +820,6 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
     padding: 0;
     display: none;
     visibility: visible;
@@ -1060,7 +1056,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 		transition: visibility 0s linear 0.2s,opacity 0.2s linear;
 		background-color: #fec118;
 		position: absolute;
-		top: 49px;
+		top: 39px;
 		right: 50%;
 		position: absolute;
 		width: 230px;
@@ -1107,4 +1103,105 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 		color: #000000;
 	}
 
+	.menu .main li:hover .menusub-ico, .menu .main li:hover .menu-sub:before{
+		content: "";
+		display: block;
+		position:  absolute;
+		left: calc( 50% - 1.5rem);
+		top: -1.3rem;
+		background-color: #fec118;
+		width: 0;
+		height: 0;
+		border-left: 1rem solid transparent;
+		border-right: 1rem solid transparent;
+		border-bottom: 1rem solid white;
+	}
+}
+
+/* ========================================================================== */
+/* SLIDER */
+/* ========================================================================== */
+.sec.slider.home .slides {
+    width:  100%;
+    height:  100%;
+}
+
+.slider.home .left-button, .slider.home .right-button {
+    display:  inline-block;
+    font-size: 7rem;
+    position:  absolute;
+    top: calc( 50% - 3.5rem);
+    color:  #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.slider.home .right-button {
+    right: 1.5rem;
+}
+
+.slider.home .left-button:hover, .slider.home .right-button:hover {
+    color: #fec118;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slider.home .left-button:hover {
+    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slider.home .slides-pagination {
+    position:  absolute;
+    bottom: 0;
+    width: 50%;
+    left: 25%;
+    text-align:  center;
+    margin-bottom: 2rem;
+}
+
+.slider.home .slides-pagination .bullet {
+    width: 1rem;
+    height: 1rem;
+    background-color:  #ffffff;
+    display: inline-block;
+    border-radius:  50%;
+    margin: 0 1rem;
+    cursor:  pointer;
+    transition:  all 0.2s;
+}
+
+.slider.home .slides-pagination .bullet.active {
+    background-color: #fec118;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.23);
+}
+
+.slider.home .slides-pagination .bullet:hover {
+    background-color: #ffd100;
+}
+
+.slider.home .slider-controls {
+    position: relative;
+    top: -100%;
+    height: 100%;
+    left:  0;
+    width: 100%;
+}
+
+.slider.home .left-button {
+    left: 1.5rem;
+}
+
+.sec.slider.home .slides .slide {
+    height:  100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    position:  absolute;
+    top: 0;
+    left:  0;
+}
+
+.sec.slider.home .slides .slide.active {
+    /* width:  0; */
 }

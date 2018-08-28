@@ -11,6 +11,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?ver=4.9.8"></script>
     <script type="text/javascript" src="js/libs/bootstrap-4.1.3-dist/bootstrap.min.js?ver=4.9.8"></script>
 	<script type="text/javascript" src="js/src/pedigree-menu.js"></script>
+	<script type="text/javascript" src="js/src/pedigree-slider.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -141,8 +142,25 @@
     <!-- MAIN CONTENT -->
     <div id="main-content">
         <!-- SECTOR SLIDER -->
-        <div class="sec slider home" data-type="homeSlider">
-        </div>
+		<div class="sec slider home" data-type="homeSlider">
+			<div class="slides">
+			    <div class="slide active" style=" background-image: url(assets/img/dog.jpg);"></div>
+			</div>
+		 	<div class="container slider-controls"><div class="row">
+		    	<div class="left-button">
+					<i class="fas fa-angle-left"></i>
+				</div>
+			    <div class="right-button">
+					<i class="fas fa-angle-right"></i>
+				</div>
+			    <div class="slides-pagination">
+			    	<span class="bullet active"></span>
+			    	<span class="bullet"></span>
+		    		<span class="bullet"></span>
+					<span class="bullet"></span></div>
+			     </div>
+		 	</div>
+		 </div>
         <!-- SECTOR TEASER -->
         <!-- <div class="sec teaser teaser1">
             <div class="container">
