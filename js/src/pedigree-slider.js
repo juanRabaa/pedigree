@@ -36,25 +36,10 @@ $(document).ready(function(){
         index++;
     }
 
-    function setAutoInterval(){
-        autoInterval = setInterval(function(){
-            setNextIndex();
-            setCurrentImage();
-        }, 3000);
-    }
-
-    function resetAutoInterval(){
-        clearInterval(autoInterval);
-        setTimeout(function(){
-            setAutoInterval();
-        }, 3000);
-    }
-
     $leftButton.on('click', function(){
         if(index == 0)
             index = images.length;
         index--;
-        cleanAutoInterval();
         setCurrentImage();
     });
 
