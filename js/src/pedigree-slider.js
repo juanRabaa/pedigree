@@ -1,49 +1,41 @@
 $(document).ready(function(){
     var $slider = $('.slider.home').first();
-    var $slide = $slider.find('.slide').first();
+    var $slides = $slider.find('.slide');
+    var amountOfSlides = $slides.length;
     var $leftButton = $slider.find('.left-button').first();
     var $rightButton =  $slider.find('.right-button').first();
     var $bullets = $slider.find('.slides-pagination .bullet');
 
-    var images = ['assets/img/dog.jpg', 'assets/img/dog2.jpg', 'assets/img/dog3.jpg', 'assets/img/dog4.jpg'];
     var index = 0;
     var autoInterval = null;
     var intervalTimeout = null;
 
-    function loadImages(){
-        images.forEach(function(imgSrc){
-            var image = new Image();
-            image.src = imgSrc;
-            image.onload = function(){
-                console.log(imgSrc);
-            };
-        });
-    }
-
     function setCurrentImage(){
-        $slide.css('background-image', 'url('+ images[index] +')');
+        $slides.removeClass('active');
+        $($slides[index]).addClass('active');
         setCurrentBullet();
     }
 
     function setCurrentBullet(){
         $bullets.removeClass('active');
-        $($bullets[index])  .addClass('active');
+        $($bullets[index]).addClass('active');
     }
 
     function setNextIndex(){
-        if(index == images.length - 1)
+        if(index == amountOfSlides - 1)
             index = -1;
         index++;
     }
 
     $leftButton.on('click', function(){
         if(index == 0)
-            index = images.length;
+            index = amountOfSlides;
         index--;
         setCurrentImage();
     });
 
     $rightButton.on('click', function(){
+        console.log($slides);
         setNextIndex();
         setCurrentImage();
     });
@@ -53,5 +45,4 @@ $(document).ready(function(){
         setCurrentImage();
     });
 
-    loadImages();
 });
