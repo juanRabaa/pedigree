@@ -313,6 +313,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-top:  0;
     padding-bottom: 0;
     position:  relative;
+    display:  flex;
+    align-items:  center;
+    justify-content:  center;
 }
 
 .header.fixed {
@@ -1158,6 +1161,7 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     text-align:  center;
     margin-bottom: 2rem;
     user-select: none;
+    top: 13rem;
 }
 
 .slider.home .slides-pagination .bullet {
@@ -1181,11 +1185,12 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 }
 
 .slider.home .slider-controls {
-    position: relative;
-    top: -100%;
-    height: 100%;
-    left:  0;
     width: 100%;
+    top: 50%;
+    left: auto;
+    position: absolute;
+    padding: 0!important;
+    max-width: 1200px;
 }
 
 .slider.home .left-button {
@@ -1207,6 +1212,13 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 .sec.slider.home .slides .slide.active {
     /* width:  0; */
 }
+
+@media (min-width: 992px){
+    .slider.home .slides-pagination{
+    	top: 19rem;
+    }
+}
+
 
 /* ========================================================================== */
 /* ARTICLES SECTION */
@@ -1274,7 +1286,4 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
     font-size:  5rem!important;
     text-align:  center;
     margin-bottom: 3rem;
-}
-
-.sec.article > .title > * {
 }
