@@ -378,6 +378,17 @@ h1, h2, h3, h4, h5, h6 {
     justify-self: flex-end;
 }
 
+.more-button.black {
+    color: #000000;
+    transition:  all 0.2s;
+}
+
+.more-button.black:hover {
+    color: #000000;
+    border-color: #000000;
+    background-color: #fec118;
+}
+
 /* ========================================================================== */
 /* TEASER */
 /* ========================================================================== */
@@ -1274,7 +1285,6 @@ ul.social .fa-stack.reverse:hover i.fa-circle {color: #ffffff; */}
 
     .sec.slider.home .slides .slide .content > .row {
         justify-content:  center;
-        color: #333333;
     }
 }
 /* ========================================================================== */
