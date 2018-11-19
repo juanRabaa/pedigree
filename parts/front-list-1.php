@@ -22,19 +22,18 @@ $columns = json_decode(get_theme_mod('pedigree-columns-section-1-content', ''), 
 				<div class="list-item col-12 col-sm-6 col-lg-3">
 					<div class="product">
 						<div class="title col-12">
-							<h1 class="pedigree-yellow-color pedigree-light"><?php echo $column['name']; ?></h1>
+							<h1 class="pedigree-main-color pedigree-light"><?php echo $column['name']; ?></h1>
 						</div>
 						<div class="image before col-12">
 							<a href="<?php echo $column['url']; ?>">
-								<img class="hover-twinkle" src="<?php echo $column['image']; ?>">
+								<img src="<?php echo $column['image']; ?>">
 							</a>
 						</div>
 						<div class="button col-12">
-							<div class="more-button pedigree-yellow-color">
-								<a href="<?php echo $column['url']; ?>"></a>
-								<span> MÁS INFO </span>
-								<i class="fas fa-caret-right"></i>
-							</div>
+							<?php pedigree_more_button(array(
+								'text'  => 'MÁS INFO',
+								'url'   => $column['url'],
+							)); ?>
 						</div>
 					</div>
 				</div>

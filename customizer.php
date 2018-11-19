@@ -12,70 +12,73 @@ function customizer_api_configuration($customizer_api){
 			'title'          => __('Front page', 'pedigree-genosha'),
 			'description'    => __('Configuración del front page', 'pedigree-genosha'),
 		)
-	)
-	->add_section(
-		'pedigree-featured-post',
-		array(
-	        'title'     => __('Artículo destacado', 'pedigree-genosha'),
-	        'priority'  => 1,
-			'panel'  	=> 'front_page_panel',
-	    ),
-		array(
-			'activated' 		=> true,
-			'selector'  		=> '#featured-post-section',
-			'render_callback' 	=> function(){
-	            get_template_part("parts/front", "featured-post");
-	        },
-			'container_inclusive'	=>	true,
+	);
+
+	if( PED_FEATURED_POST ){
+		$customizer_api->add_section(
+			'pedigree-featured-post',
+			array(
+		        'title'     => __('Artículo destacado', 'pedigree-genosha'),
+		        'priority'  => 1,
+				'panel'  	=> 'front_page_panel',
+		    ),
+			array(
+				'activated' 		=> true,
+				'selector'  		=> '#featured-post-section',
+				'render_callback' 	=> function(){
+		            get_template_part("parts/front", "featured-post");
+		        },
+				'container_inclusive'	=>	true,
+			)
 		)
-	)
-	->add_control(//Control creation
-		'pedigree-featured-post-info',//id
-		RB_Inputs_Control,//control class
-		array(//Settings creation
-			'pedigree-featured-post-info' => array(
-				'options' => array(
-					'transport' => 'postMessage',
-					'default'	=> '',
+		->add_control(//Control creation
+			'pedigree-featured-post-info',//id
+			RB_Inputs_Control,//control class
+			array(//Settings creation
+				'pedigree-featured-post-info' => array(
+					'options' => array(
+						'transport' => 'postMessage',
+						'default'	=> '',
+					),
+				)
+			),
+			array(//Control options
+				'label'      			=> __( 'Cover', 'pedigree-genosha' ),
+				'inputs_types'       	=> array(
+					'use_most_recent'	=>	array(
+						'nice_name'		=>	__( 'Usar post más reciente', 'pedigree-genosha' ),
+						'type'			=>  "checkbox",
+						'dependencies'	=> 'post_id',
+						'reverse_dependencies'	=> true,
+						'default'		=> true,
+					),
+					'post_id'				=>	array(
+						'nice_name'		=>	__( 'Post', 'pedigree-genosha' ),
+						'type'			=>  "post",
+						//'dependencies'	=> 'use_post_data',
+					),
+					'use_post_data'		=>	array(
+						'nice_name'		=>	__( 'Usar datos del post', 'pedigree-genosha' ),
+						'type'			=>  "checkbox",
+						'dependencies'	=> 'title,text,image',
+						'reverse_dependencies'	=> true,
+					),
+					'title'				=>	array(
+						'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+						'type'			=>  "text",
+					),
+					'text'				=>	array(
+						'nice_name'		=>	__( 'Texto', 'pedigree-genosha' ),
+						'type'			=>  "text",
+					),
+					'image'		=>	array(
+						'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
+						'type'			=>  "image",
+					),
 				),
 			)
-		),
-		array(//Control options
-			'label'      			=> __( 'Cover', 'pedigree-genosha' ),
-			'inputs_types'       	=> array(
-				'use_most_recent'	=>	array(
-					'nice_name'		=>	__( 'Usar post más reciente', 'pedigree-genosha' ),
-					'type'			=>  "checkbox",
-					'dependencies'	=> 'post_id',
-					'reverse_dependencies'	=> true,
-					'default'		=> true,
-				),
-				'post_id'				=>	array(
-					'nice_name'		=>	__( 'Post', 'pedigree-genosha' ),
-					'type'			=>  "post",
-					//'dependencies'	=> 'use_post_data',
-				),
-				'use_post_data'		=>	array(
-					'nice_name'		=>	__( 'Usar datos del post', 'pedigree-genosha' ),
-					'type'			=>  "checkbox",
-					'dependencies'	=> 'title,text,image',
-					'reverse_dependencies'	=> true,
-				),
-				'title'				=>	array(
-					'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
-					'type'			=>  "text",
-				),
-				'text'				=>	array(
-					'nice_name'		=>	__( 'Texto', 'pedigree-genosha' ),
-					'type'			=>  "text",
-				),
-				'image'		=>	array(
-					'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
-					'type'			=>  "image",
-				),
-			),
-		)
-	);
+		);
+	}
 
 	$customizer_api->add_section(
 		'pedigree-slider',

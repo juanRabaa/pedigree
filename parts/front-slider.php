@@ -39,7 +39,7 @@ $slides = json_decode(get_theme_mod('pedigree-slider-content', ''), true);
 			<div class="container content <?php echo $reverse_class; ?>">
 				<div class="row">
 					<div class="text col-12 col-sm-8 <?php echo $text_col_class; ?>">
-						<h1 class="display-3 title pedigree-yellow-color pedigree-light"><?php echo $slide['name']; ?></h1>
+						<h1 class="display-3 title pedigree-main-color pedigree-light"><?php echo $slide['name']; ?></h1>
 						<div class="slider-text">
 							<p><?php echo $slide['text']; ?></p>
 						</div>
@@ -49,17 +49,17 @@ $slides = json_decode(get_theme_mod('pedigree-slider-content', ''), true);
 						<?php if($slide['url'] || $slide['video_id']): ?>
 						<div class="more-button-container">
 							<?php if($slide['video_id']): ?>
-							<div class="play-button more-button pedigree-yellow-color whole">
-								<span>VER VIDEO</span>
-								<i class="far fa-play-circle"></i>
-							</div>
+							<?php pedigree_more_button(array(
+								'text'  	=> 'VER VIDEO',
+								'faw'   	=> 'far fa-play-circle',
+								'classes'	=> 'play-button',
+							)); ?>
 							<?php endif; ?>
 							<?php if($slide['url']): ?>
-							<div class="more-button pedigree-yellow-color whole">
-								<a href="<?php echo $slide['url']; ?>"></a>
-								<span><?php echo $button_text; ?></span>
-								<i class="fas fa-caret-right"></i>
-							</div>
+							<?php pedigree_more_button(array(
+								'text'  	=> $button_text,
+								'url'		=> $slide['url'],
+							)); ?>
 							<?php endif; ?>
 						</div>
 						<?php endif; ?>

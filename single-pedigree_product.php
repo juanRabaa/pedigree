@@ -18,11 +18,11 @@ get_header();
                         <?php $branches_page = json_decode(get_theme_mod('pedigree-branches-page', ''), true); ?>
                         <?php if(is_array($branches_page) && isset($branches_page['page_id']) && $branches_page['page_id'] != -1): ?>
                         <div class="buy-button">
-                            <div class="more-button pedigree-yellow-color">
-        						<a href="<?php echo get_permalink($branches_page['page_id']); ?>"></a>
-        						<span>COMPRAR</span>
-        						<i class="fas fa-caret-right"></i>
-        					</div>
+                            <?php pedigree_more_button(array(
+                                'text'  => 'COMPRAR',
+                                'url'	=> get_permalink($branches_page['page_id']),
+                                'icon'  => false,
+                            )); ?>
                         </div>
                         <?php endif; ?>
                     <?php endif; ?>
@@ -64,14 +64,18 @@ get_header();
                 <div class="sec-header"><h2 class="title">Comprar en Tiendas</h2></div>
                 <div class="content">
                     <div id="stores-map-tools" class="side-by-side">
-                        <div id="search-button" class="more-button pedigree-yellow-color full-width nowrap">
-                            <input id="map-address-search" type="text" placeholder="INGRESA TU DIRECCIÓN..." autocomplete="off">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div id="geolocation-button" class="more-button pedigree-yellow-color full-width nowrap">
-                            <span> DETECTAR TU UBICACIÓN </span>
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <?php pedigree_more_button(array(
+                            'content'   => "<input id='map-address-search' type='text' placeholder='INGRESA TU DIRECCIÓN...' autocomplete='off'>",
+                            'classes'	=> 'full-width nowrap',
+                            'id'        => 'search-button',
+                            'faw'       => 'fas fa-search',
+                        )); ?>
+                        <?php pedigree_more_button(array(
+                            'text'  	=> 'DETECTAR TU UBICACIÓN',
+                            'classes'	=> 'full-width nowrap',
+                            'id'        => 'geolocation-button',
+                            'faw'       => 'fas fa-map-marker-alt',
+                        )); ?>
                     </div>
                     <div id="stores-map" src="https://lacasadelasospecha.files.wordpress.com/2013/02/imagen-11.png?w=748"></div>
                 </div>
@@ -79,7 +83,7 @@ get_header();
         </div>
     </div>
     <?php endif; ?>
-    
+
     <?php endwhile; // end of the loop. ?>
 </div>
 <?php get_footer(); ?>

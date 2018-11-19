@@ -58,14 +58,18 @@ get_header();
                 <div class="sec-header"><h2 class="title">Comprar en Tiendas</h2></div>
                 <div class="content">
                     <div id="stores-map-tools" class="side-by-side">
-                        <div id="search-button" class="more-button pedigree-yellow-color full-width nowrap">
-                            <input id="map-address-search" type="text" placeholder="INGRESA TU DIRECCIÓN..." autocomplete="off">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div id="geolocation-button" class="more-button pedigree-yellow-color full-width nowrap">
-                            <span> DETECTAR TU UBICACIÓN </span>
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <?php pedigree_more_button(array(
+                            'content'   => "<input id='map-address-search' type='text' placeholder='INGRESA TU DIRECCIÓN...' autocomplete='off'>",
+                            'classes'	=> 'full-width nowrap',
+                            'id'        => 'search-button',
+                            'faw'       => 'fas fa-search',
+                        )); ?>
+                        <?php pedigree_more_button(array(
+                            'text'  	=> 'DETECTAR TU UBICACIÓN',
+                            'classes'	=> 'full-width nowrap',
+                            'id'        => 'geolocation-button',
+                            'faw'       => 'fas fa-map-marker-alt',
+                        )); ?>
                     </div>
                     <div id="stores-map" src="https://lacasadelasospecha.files.wordpress.com/2013/02/imagen-11.png?w=748"></div>
                 </div>

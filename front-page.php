@@ -38,7 +38,7 @@ get_header();
 	<!-- SECTION LIST -->
 	<?php get_template_part("parts/front", "list-1"); ?>
 	<!-- SECTION ARTICLE -->
-	<?php get_template_part("parts/front", "featured-post"); ?>
+	<?php if( PED_FEATURED_POST ) get_template_part("parts/front", "featured-post"); ?>
 	<!-- SECTION LIST -->
 	<?php get_template_part("parts/front", "list-2"); ?>
 

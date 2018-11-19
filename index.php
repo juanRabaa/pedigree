@@ -30,11 +30,10 @@ $text = get_theme_mod('pedigree-blog-text', '');
                         </a>
                         <p class="post-excerpt"><?php echo get_the_excerpt(); ?></p>
                     </div>
-                    <div class="more-button pedigree-yellow-color">
-                        <a href="<?php echo get_permalink(); ?>"></a>
-                    	<span>Leer artículo</span>
-                        <i class="fas fa-caret-right"></i>
-                    </div>
+                    <?php pedigree_more_button(array(
+                        'text'  => 'Leer artículo',
+                        'url'   => get_permalink(),
+                    )); ?>
                 </div>
             <?php endwhile; // end of the loop. ?>
             </div>

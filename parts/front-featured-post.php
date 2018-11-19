@@ -37,10 +37,9 @@ else{
 			<!-- <p class="img-cred">img: credito img</p> -->
 			<h1 class="post-title"><?php echo $title; ?></h1>
 			<p class="post-excerpt"><?php echo $text; ?></p>
-			<div class="more-button pedigree-yellow-color">
-				<a <?php echo $href_attr; ?>></a>
-				<span>Leer artículo</span>
-				<i class="fas fa-caret-right"></i>
-			</div>
+			<?php pedigree_more_button(array(
+				'text'  => 'Leer artículo',
+				'url'   => $href_attr,
+			)); ?>
 	</div>
 </div>

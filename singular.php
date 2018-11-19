@@ -11,7 +11,7 @@ get_header();
     <?php while ( have_posts() ) : the_post(); ?>
         <div class="post-featured-image" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);"></div>
         <div class="post-content-box">
-            <h1 class="display-4 post-title pedigree-yellow-color"><?php the_title(); ?></h1>
+            <h1 class="display-4 post-title pedigree-main-color"><?php the_title(); ?></h1>
             <div class="post-content">
         	     <?php echo the_content(); ?>
             </div>
@@ -28,11 +28,10 @@ get_header();
                         <h1 class="post-title"><?php echo $related_post->post_title; ?></h1>
                         <p class="post-excerpt"><?php echo get_the_excerpt( $related_post ); ?></p>
                     </div>
-                    <div class="more-button pedigree-yellow-color">
-                        <a href="<?php echo get_permalink($related_post); ?>"></a>
-                    	<span>Leer artículo</span>
-                        <i class="fas fa-caret-right"></i>
-                    </div>
+                    <?php pedigree_more_button(array(
+                        'text'  => 'Leer artículo',
+                        'url'   => get_permalink($related_post),
+                    )); ?>
                 </div>
             <?php endforeach; ?>
             </div>

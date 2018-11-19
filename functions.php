@@ -1,5 +1,6 @@
 <?php
 define('PEDIGREE_STORES_ACTIVATED', true);
+define('PED_FEATURED_POST', true);
 
 add_theme_support( 'post-thumbnails' );
 add_post_type_support( 'page', 'excerpt' );
@@ -60,6 +61,35 @@ if( !PEDIGREE_STORES_ACTIVATED ){
 // =============================================================================
 // MARKUP
 // =============================================================================
+function pedigree_more_button($args){
+	$defaults = array(
+		'text'			=> '',
+		'content'		=> '',
+		'url'			=> '',
+		'icon'			=> true,
+		'faw'			=> 'fas fa-caret-right',
+		'classes'		=> '',
+		'id'			=> '',
+	);
+	$settings = wp_parse_args($args, $defaults);
+	extract($settings);
+	if($text || $content):
+		$id_attr = $id ? "id=$id" : '';
+	?>
+	<div <?php echo $id_attr; ?> class="more-button pedigree-main-color <?php echo esc_attr($classes); ?>">
+		<?php if( $url ): ?><a href="<?php echo esc_attr($url); ?>"></a><?php endif; ?>
+		<?php if( $content ): echo $content; ?>
+		<?php else: ?>
+		<span><?php echo $text; ?></span>
+		<?php endif; ?>
+		<?php if( $icon ): ?>
+		<i class="<?php echo esc_attr($faw); ?>"></i>
+		<?php endif; ?>
+	</div>
+	<?php
+	endif;
+}
+
 function pedigree_product_prev_box( $product_ID, $args = array() ){
 	$peaces_images = pedigree_get_product_peaces_images($product_ID);
 
