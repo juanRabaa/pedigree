@@ -123,7 +123,7 @@ function pedigree_product_prev_box( $product_ID, $args = array() ){
 			<div class="info">
 				<div class="buttons">
 					<?php if($show_info_button): ?>
-						<div class="more-button pedigree-yellow-color">
+						<div class="more-button pedigree-main-color">
 							<a href="<?php echo $permalink; ?>"></a>
 							<span><?php echo $info_text; ?></span>
 							<i class="fas fa-caret-right"></i>
@@ -132,7 +132,7 @@ function pedigree_product_prev_box( $product_ID, $args = array() ){
 					<?php if($show_buy_button): ?>
 						<?php $branches_page = json_decode(get_theme_mod('pedigree-branches-page', ''), true); ?>
 						<?php if(is_array($branches_page) && isset($branches_page['page_id']) && $branches_page['page_id'] != -1): ?>
-						<div class="more-button pedigree-yellow-color">
+						<div class="more-button pedigree-main-color">
 							<a href="<?php echo get_permalink($branches_page['page_id']); ?>"></a>
 							<span><?php echo $buy_text; ?></span>
 							<i class="fas fa-caret-right"></i>

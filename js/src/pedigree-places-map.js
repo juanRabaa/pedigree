@@ -182,7 +182,7 @@ function getPlaceDetailBox(place){
     if( address ){
         finalHtml += `
         <div class="item-info">
-            <div class="icon pedigree-yellow-color"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="icon pedigree-main-color"><i class="fas fa-map-marker-alt"></i></div>
             <p class="info">${address}</p>
         </div>
         `;
@@ -190,7 +190,7 @@ function getPlaceDetailBox(place){
     if( timetable ){
         finalHtml += `
         <div class="item-info">
-            <div class="icon pedigree-yellow-color"><i class="far fa-clock"></i></div>
+            <div class="icon pedigree-main-color"><i class="far fa-clock"></i></div>
             <p class="info">${timetable}</p>
         </div>
         `;
@@ -198,7 +198,7 @@ function getPlaceDetailBox(place){
     if( phone ){
         finalHtml += `
         <div class="item-info">
-            <div class="icon pedigree-yellow-color"><i class="fas fa-phone"></i></div>
+            <div class="icon pedigree-main-color"><i class="fas fa-phone"></i></div>
             <p class="info"><a href="tel:+${phone}" data-rel="external">${phone}</a></p>
         </div>
         `;
@@ -206,7 +206,7 @@ function getPlaceDetailBox(place){
     if( url ){
         finalHtml += `
         <div class="item-info">
-            <div class="icon pedigree-yellow-color"><i class="fas fa-globe"></i></div>
+            <div class="icon pedigree-main-color"><i class="fas fa-globe"></i></div>
             <p class="info"><a target="_blank" href="${url}">${url}</a></p>
         </div>
         `;
@@ -214,7 +214,7 @@ function getPlaceDetailBox(place){
     if( email ){
         finalHtml += `
         <div class="item-info">
-            <div class="icon pedigree-yellow-color"><i class="fas fa-envelope"></i></div>
+            <div class="icon pedigree-main-color"><i class="fas fa-envelope"></i></div>
             <p class="info"><a href="mailto:${email}" data-rel="external">${email}</a></p>
         </div>
         `;

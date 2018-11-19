@@ -13,7 +13,7 @@ get_header();
         	<div class="container product-header col-12 col-md-4">
                 <img class="product-image" src="<?php the_post_thumbnail_url('full'); ?>">
                 <div class="bottom">
-                    <h1 class="product-title pedigree-yellow-color"><?php the_title(); ?></h1>
+                    <h1 class="product-title pedigree-main-color"><?php the_title(); ?></h1>
                     <?php if( PEDIGREE_STORES_ACTIVATED ): ?>
                         <?php $branches_page = json_decode(get_theme_mod('pedigree-branches-page', ''), true); ?>
                         <?php if(is_array($branches_page) && isset($branches_page['page_id']) && $branches_page['page_id'] != -1): ?>
@@ -21,7 +21,6 @@ get_header();
                             <?php pedigree_more_button(array(
                                 'text'  => 'COMPRAR',
                                 'url'	=> get_permalink($branches_page['page_id']),
-                                'icon'  => false,
                             )); ?>
                         </div>
                         <?php endif; ?>
@@ -29,7 +28,7 @@ get_header();
                 </div>
             </div>
             <div class="product-table col-12 col-md-8">
-                <h1 class="product-title pedigree-yellow-color display-4"><?php the_title(); ?></h1>
+                <h1 class="product-title pedigree-main-color display-4"><?php the_title(); ?></h1>
                 <ul class="triggers">
                     <li de data-content="<?php echo esc_attr(get_the_content()); ?>" class="container trigger active">Descripción</li>
                     <li data-content="<?php echo esc_attr(get_post_meta( $post->ID, 'pedigree_product_ingredients', true )); ?>"  class="container trigger">Ingredientes</li>

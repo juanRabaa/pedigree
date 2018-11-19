@@ -52,13 +52,14 @@ $slides = json_decode(get_theme_mod('pedigree-slider-content', ''), true);
 							<?php pedigree_more_button(array(
 								'text'  	=> 'VER VIDEO',
 								'faw'   	=> 'far fa-play-circle',
-								'classes'	=> 'play-button',
+								'classes'	=> 'play-button whole',
 							)); ?>
 							<?php endif; ?>
 							<?php if($slide['url']): ?>
 							<?php pedigree_more_button(array(
 								'text'  	=> $button_text,
 								'url'		=> $slide['url'],
+								'classes'	=> 'play-button whole',
 							)); ?>
 							<?php endif; ?>
 						</div>

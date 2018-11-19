@@ -172,7 +172,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 /* THEME CSS */
 /* ========================================================================== */
 @font-face {
-    font-family: pedigree-bold;
+    font-family: pedigree;
     font-weight: bold;
     font-style: normal;
     src: url("assets/fonts/pedigree-bold/pedigree-bold.eot");
@@ -180,15 +180,15 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 }
 
 @font-face {
-    font-family: pedigree-bold-ultra;
-    font-weight: bold;
+    font-family: pedigree;
+    font-weight: bolder;
     font-style: normal;
     src: url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.eot");
     src: url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultrad41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.woff") format("woff"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.ttf") format("truetype"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.svg#pedigree-bold-ultra") format("svg");
 }
 
 @font-face {
-    font-family: pedigree-light;
+    font-family: pedigree;
     font-weight: normal;
     font-style: normal;
     src: url("assets/fonts/pedigree-light/pedigree-light.eot");
@@ -196,9 +196,9 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 }
 
 @font-face {
-    font-family: pedigree-light-italic;
+    font-family: pedigree;
     font-weight: normal;
-    font-style: normal;
+    font-style: italic;
     src: url("assets/fonts/pedigree-light-italic/pedigree-light-italic.eot");
     src: url("assets/fonts/pedigree-light-italic/pedigree-light-italicd41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.woff") format("woff"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.ttf") format("truetype"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.svg#pedigree-light-italic") format("svg");
 }
@@ -221,27 +221,28 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 }
 
 body {
-    font-family: 'pedigree-light';
+    font-family: 'pedigree';
     color: #000;
 }
 
 *{
-	font-family: 'pedigree-light', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'pedigree', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.5rem;
 }
 p {
     line-height: 1.7;
-    font-family: 'pedigree-light', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'pedigree', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.7rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
-    font-family: 'pedigree-bold', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'pedigree', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.1;
+    /* font-weight: bold; */
 }
 
-.pedigree-yellow-color {
+.pedigree-main-color {
     color: var(--pd-color);
     border-color: var(--pd-color);
 }
@@ -257,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pedigree-light {
-    font-family:  pedigree-light;
+    font-family:  pedigree;
 }
 
 /* ========================================================================== */
@@ -491,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .list-item .title > h4 {
-    font-family: pedigree-light;
+    font-family: pedigree;
 }
 
 .list .list-item {
@@ -511,6 +512,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .list .list-item .product .title > * {
     font-size: 2.4rem;
+    font-weight: 400;
 }
 
 .row.products-list {
@@ -538,6 +540,7 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width: 992px){
     .sec .title > * {
         font-size: 4.5rem;
+        font-weight: bold;
     }
 
     .list .list-item .product .title > *{
@@ -607,9 +610,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-top .menu2 ul li a.first {
-    font-family: 'pedigree-bold';
+    font-family: 'pedigree';
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+    font-weight: bold;
 }
 
 .footer-top .menu2 ul li a.subfooter {
@@ -826,7 +830,7 @@ ul.social a {
     color: #FFF;
     border-right: 2px solid;
     border-color: #dfa70e;
-    font-family: 'pedigree-bold';
+    font-family: 'pedigree';
     -webkit-transition: color 0.5s, background-position 0.5s ease;
     transition: color 0.5s, background-position 0.5s ease;
 }
@@ -840,6 +844,7 @@ ul.social a {
     font-size: 1.5rem;
     color: #000;
     padding:  0;
+    font-weight: 800;
 }
 
 .menu ul li a:hover, .menu ul li a.active {
@@ -1379,13 +1384,13 @@ ul.social a {
     /* margin-top:  2rem; */
 }
 
-.more-button.pedigree-yellow-color.whole {
+.more-button.pedigree-main-color.whole {
     background-color: var(--pd-color);
     color: #000000;
     border-color: transparent;
 }
 
-.more-button.pedigree-yellow-color.whole:hover {
+.more-button.pedigree-main-color.whole:hover {
     color: #000000;
 }
 
@@ -1826,6 +1831,7 @@ ul.social a {
 
 .pedigree-product .product-title {
     margin-bottom:  2rem;
+    font-weight: bold;
 }
 
 .pedigree-product .buy-button {
@@ -2369,6 +2375,7 @@ ul.social a {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 3rem;
+    font-weight: bold;
 }
 
 #purchase-options .section-map .sec-header .title {
