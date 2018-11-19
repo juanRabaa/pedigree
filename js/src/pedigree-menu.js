@@ -1,18 +1,22 @@
 $(document).ready(function(){
     var $menu = $(".header .menu").first();
     var $menuButton = $menu.find('.menu-icon').first();
+    var $menuContent = $menu.find('.menu-content').first();
 
     function menuIsOpen(){
         return $menu.hasClass('active');
     }
 
     function openMenu(){
-        console.log($menu);
-        $menu.addClass('active');
+        $menuContent.slideDown(300, function(){
+            $menu.addClass('active');
+        });
     }
 
     function closeMenu(){
-        $menu.removeClass('active');
+        $menuContent.slideUp(300, function(){
+            $menu.removeClass('active');
+        });
     }
 
     // =========================================================================
@@ -29,21 +33,26 @@ $(document).ready(function(){
     // =============================================================================
     $menu.on('click', '.submenu-button .down-button', function(){
         var $submenu = $(this).closest('.submenu-button');
+        var $content = $submenu.find('.menu-sub').first();
         var isOpen = $submenu.hasClass('active');
         //If the submenu is open
         if( isOpen ){
             $submenu.removeClass('active');
+            $content.slideUp(300, function(){
+                $submenu.removeClass('active');
+            });
         }
-        else
-            $submenu.addClass('active');
+        else{
+            $submenu.addClass('opening');
+            $content.slideDown(300, function(){
+                $submenu.addClass('active');
+                $submenu.removeClass('opening');
+            });
+        }
     });
 
-
-    // =========================================================================
-    // MENU FIXED
-    // =========================================================================
-    $(document).on('scroll', function(){
-    	var htmlOffsetTop = $(window).scrollTop();
+    function updateMenu(){
+        var htmlOffsetTop = $(window).scrollTop();
     	var $header = $('.header');
         var $placeHolder = $('.header-placeholder');
 
@@ -57,5 +66,15 @@ $(document).ready(function(){
             $header.height( 50 );
             $placeHolder.height( 84 );
         }
+    }
+
+    // =========================================================================
+    // MENU FIXED
+    // =========================================================================
+    $(document).on('scroll', function(){
+        updateMenu();
     })
+
+    //On ready
+    updateMenu();
 });
