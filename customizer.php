@@ -159,13 +159,13 @@ function customizer_api_configuration($customizer_api){
 	$rows_section = $customizer_api->add_section(
 		'pedigree-triple-content-1',
 		array(
-	        'title'     => __('Links 1', 'pedigree-genosha'),
+	        'title'     => __('Links', 'pedigree-genosha'),
 	        'priority'  => 1,
 			'panel'  	=> 'front_page_panel',
 	    ),
 		array(
 			'activated' 		=> true,
-			'selector'			=>	"#list-1-section",
+			'selector'			=>	"#links-section-container",
 			'render_callback' 	=> function(){
 	            get_template_part("parts/front", "list-1");
 	        },
