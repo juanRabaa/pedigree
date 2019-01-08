@@ -19,30 +19,37 @@ function initMap() {
     service = new google.maps.places.PlacesService(map);
     //geocoder = new google.maps.Geocoder;
 
-    var markers = wp_data.places.map(function(place, i) {
-        if( place.lat != 0 && place.lng != 0){
-            //console.log(place);
-            var marker = new google.maps.Marker({
-                position: { lat: place.lat, lng: place.lng },
-                map: map,
-                icon: wp_data.markerIcon,
-            });
-            //console.log( getPlaceIdByLocation({ lat: place.lat, lng: place.lng }) );
-
-            // =================================================================
-            // PLACE DETAILS on click
-            // =================================================================
-            google.maps.event.addListener(marker, 'click', function() {
+    var markers = null;
+    if(wp_data.places){
+        markers = wp_data.places.map(function(place, i) {
+            var lat = parseFloat(place.lat);
+            var lng = parseFloat(place.lng);
+            //console.log(place.name, lat, lng);
+            if( lat != 0 && lng != 0){
                 //console.log(place);
-                var boxHtml = getPlaceDetailBox(place);
-                infoWindow.setContent(boxHtml);
-              infoWindow.open(map, this);
-            });
+                var marker = new google.maps.Marker({
+                    position: { lat: lat, lng: lng },
+                    map: map,
+                    icon: wp_data.markerIcon,
+                });
+                //console.log( getPlaceIdByLocation({ lat: lat, lng: lng }) );
 
-            return marker;
-        }
-        return null;
-    });
+                // =================================================================
+                // PLACE DETAILS on click
+                // =================================================================
+                google.maps.event.addListener(marker, 'click', function() {
+                    //console.log(place);
+                    var boxHtml = getPlaceDetailBox(place);
+                    infoWindow.setContent(boxHtml);
+                  infoWindow.open(map, this);
+                });
+
+                return marker;
+            }
+            return null;
+        });
+    }
+
 
     initAutocomplete();
 }

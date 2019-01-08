@@ -22,7 +22,7 @@ $columns = json_decode(get_theme_mod('pedigree-columns-section-2-content', ''), 
 				<div class="list-item col-12 col-sm-6 col-lg-3">
 					<div class="product">
 						<div class="title col-12">
-							<h1 class="pedigree-main-color pedigree-light"><?php echo $column['name']; ?></h1>
+							<h1 class="pedigree-main-color"><?php echo $column['name']; ?></h1>
 						</div>
 						<div class="image before col-12">
 							<a href="<?php echo $column['url']; ?>">

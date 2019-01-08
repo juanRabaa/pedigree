@@ -215,13 +215,17 @@ function customizer_api_configuration($customizer_api){
 					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
 					'type'			=>  "text",
 				),
+				'alt_color'			=>	array(
+					'nice_name'		=>	__( 'Color alternativo', 'pedigree-genosha' ),
+					'type'			=>  "checkbox",
+				),
 			),
 			'inputs_title'			=> "Columna",
 			'dinamic_label'			=> 'name',
 		)
 	);
 
-	$customizer_api->add_section(
+	/*$customizer_api->add_section(
 		'pedigree-triple-content-2',
 		array(
 	        'title'     => __('Links 2', 'pedigree-genosha'),
@@ -284,7 +288,7 @@ function customizer_api_configuration($customizer_api){
 			'inputs_title'			=> "Columna",
 			'dinamic_label'			=> 'name',
 		)
-	);
+	);*/
 
 	$customizer_api->add_section(
 		'pedigree-social',
@@ -444,24 +448,19 @@ function customizer_api_configuration($customizer_api){
 			)
 		)
 		->add_control(//Control creation
-			'pedigree-branches-page',//id
-			RB_Inputs_Control,//control class
+			'pedigree-add-store-page',//id
+			RB_Single_Input_Control,//control class
 			array(//Settings creation
-				'pedigree-branches-page' => array(
+				'pedigree-add-store-page' => array(
 					'options' => array(
 						'transport' => 'postMessage',
-						'default'	=> '',
+						'default'	=> -1,
 					),
 				)
 			),
 			array(//Control options
-				'label'      			=> __( 'Página', 'pedigree-genosha' ),
-				'inputs_types'       	=> array(
-					'page_id'				=>	array(
-						'nice_name'		=>	__( 'Página', 'pedigree-genosha' ),
-						'type'			=>  "page",
-					),
-				),
+				'label'      			=> __( 'Página de formulario  nueva tienda', 'pedigree-genosha' ),
+				'input_type'       		=> "page",
 				'inputs_title'			=> "Página",
 				'dinamic_label'			=> 'page',
 			)
