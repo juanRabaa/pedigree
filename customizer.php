@@ -156,7 +156,7 @@ function customizer_api_configuration($customizer_api){
 	);
 
 
-	$customizer_api->add_section(
+	$rows_section = $customizer_api->add_section(
 		'pedigree-triple-content-1',
 		array(
 	        'title'     => __('Links 1', 'pedigree-genosha'),
@@ -172,58 +172,65 @@ function customizer_api_configuration($customizer_api){
 			'fallback_refresh'		=> true,
 			'container_inclusive'	=>	true,
 		)
-	)
-	->add_control(//Control creation
-		'pedigree-columns-section-1-title',//id
-		RB_Extended_Control,//control class
-		array(//Settings creation
-			'pedigree-columns-section-1-title' => array(
-				'options' => array(
-					'transport' => 'postMessage',
-					'default'	=> '',
-				),
-			)
-		),
-		array(//Control options
-			'label'      		=> __( 'Título', 'pedigree-genosha' ),
-			'type'           	=> 'text',
-		)
-	)
-	->add_control(//Control creation
-		'pedigree-columns-section-1-content',//id
-		RB_Inputs_Generator_Control,//control class
-		array(//Settings creation
-			'pedigree-columns-section-1-content' => array(
-				'options' => array(
-					'transport' => 'postMessage',
-					'default'	=> true,
-				),
-			)
-		),
-		array(//Control options
-			'label'      			=> __( 'Columnas', 'pedigree-genosha' ),
-			'inputs_types'       	=> array(
-				'name'				=>	array(
-					'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
-					'type'			=>  "text",
-				),
-				'image'				=>	array(
-					'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
-					'type'			=>  "image",
-				),
-				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
-					'type'			=>  "text",
-				),
-				'alt_color'			=>	array(
-					'nice_name'		=>	__( 'Color alternativo', 'pedigree-genosha' ),
-					'type'			=>  "checkbox",
-				),
-			),
-			'inputs_title'			=> "Columna",
-			'dinamic_label'			=> 'name',
-		)
 	);
+
+	for( $i = 1; $i <= PED_FIRST_LINK_SEC_ROWS_AMOUNTS; $i++){
+		$rows_section->add_control(//Control creation
+			"pedigree-columns-section-$i-title",//id
+			RB_Extended_Control,//control class
+			array(//Settings creation
+				"pedigree-columns-section-$i-title" => array(
+					'options' => array(
+						'transport' => 'postMessage',
+						'default'	=> '',
+					),
+				)
+			),
+			array(//Control options
+				'label'      		=> __( 'Título', 'pedigree-genosha' ),
+				'type'           	=> 'text',
+				'separator_content'	=> "Fila $i",
+			)
+		)
+		->add_control(//Control creation
+			"pedigree-columns-section-$i-content",//id
+			RB_Inputs_Generator_Control,//control class
+			array(//Settings creation
+				"pedigree-columns-section-$i-content" => array(
+					'options' => array(
+						'transport' => 'postMessage',
+						'default'	=> true,
+					),
+				)
+			),
+			array(//Control options
+				'label'      			=> __( "Fila $i", 'pedigree-genosha' ),
+				'inputs_types'       	=> array(
+					'name'				=>	array(
+						'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+						'type'			=>  "text",
+					),
+					'image'				=>	array(
+						'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
+						'type'			=>  "image",
+					),
+					'url'				=>	array(
+						'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+						'type'			=>  "text",
+					),
+					'alt_color'			=>	array(
+						'nice_name'		=>	__( 'Color alternativo', 'pedigree-genosha' ),
+						'type'			=>  "checkbox",
+					),
+				),
+				'inputs_title'			=> "Columna",
+				'dinamic_label'			=> 'name',
+			)
+		);
+	}
+
+
+
 
 	/*$customizer_api->add_section(
 		'pedigree-triple-content-2',
