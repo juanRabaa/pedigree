@@ -145,8 +145,10 @@ function pedigree_product_prev_box( $product_ID, $args = array() ){
 		'info_text'			=>	__('MÁS INFO', 'pedigree-genosha'),
 		'buy_text'			=>	__('COMPRAR', 'pedigree-genosha'),
 		'col_size'			=> 4,
+		'url_params'		=> '',
 	);
 	$settings = wp_parse_args( $args, $settings );
+	$settings['permalink'] .= $settings['url_params'];
 	extract($settings);
 
 	$size_class = ($col_size >= 1 && $col_size <= 12) ? "col-md-$col_size" : "col-md-4";
@@ -233,6 +235,41 @@ function get_product_characteristics_ul( $post_id ){
 	return $ul;
 }
 
+function get_product_guide($post_id){
+	$final_guide = '';
+	$puppy_guide = get_post_meta( $post_id, 'pedigree_product_guide', true );
+	$adult_guide = get_post_meta( $post_id, 'pedigree_product_guide_adult', true );
+	$senior_guide = get_post_meta( $post_id, 'pedigree_product_guide_senior', true );
+	$age_filter_cats = json_decode(get_theme_mod('pedigree-age-filter', ''), true);
+	$prod_cat_filter = pd_get_query_cats();
+	$puppy_included = $adult_included = $senior_included = false;
+
+	if(is_array($prod_cat_filter) && !empty($prod_cat_filter)){
+		foreach($prod_cat_filter as $cat_filter){
+			if(!$puppy_included && $cat_filter == $age_filter_cats['puppy']){
+				$final_guide .= $puppy_guide;
+				$puppy_included = true;
+			}
+			if(!$adult_included && $cat_filter == $age_filter_cats['adult']){
+				$final_guide .= $adult_guide;
+				$adult_included = true;
+			}
+			if(!$senior_included && $cat_filter == $age_filter_cats['senior']){
+				$final_guide .= $senior_guide;
+				$senior_included = true;
+			}
+		}
+	}
+	else{
+		$final_guide = $puppy_guide . $adult_guide . $senior_guide;
+	}
+
+	return $final_guide;
+}
+
+function pd_get_query_cats(){
+	return isset($_GET['prod_cat']) ? explode(',', $_GET['prod_cat']) : null;
+}
 // =============================================================================
 // SUCURSALES
 // =============================================================================

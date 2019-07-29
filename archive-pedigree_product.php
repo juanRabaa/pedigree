@@ -21,7 +21,10 @@ get_header();
         <div class="related-posts products-list-boxes">
             <div class="row">
             <?php while ( have_posts() ) : the_post(); ?>
-                <?php pedigree_product_prev_box( $post->ID, array( 'show_buy_button' => false ) ); ?>
+                <?php
+                pedigree_product_prev_box( $post->ID, array(
+                    'show_buy_button'   => false,
+                )); ?>
             <?php endwhile; // end of the loop. ?>
             </div>
         </div>

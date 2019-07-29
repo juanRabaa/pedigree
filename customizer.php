@@ -33,7 +33,7 @@ function customizer_api_configuration($customizer_api){
 		)
 		->add_control(//Control creation
 			'pedigree-featured-post-info',//id
-			RB_Inputs_Control,//control class
+			'RB_Inputs_Control',//control class
 			array(//Settings creation
 				'pedigree-featured-post-info' => array(
 					'options' => array(
@@ -99,7 +99,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-slider-content',//id
-		RB_Inputs_Generator_Control,//control class
+		'RB_Inputs_Generator_Control',//control class
 		array(//Settings creation
 			'pedigree-slider-content' => array(
 				'options' => array(
@@ -177,7 +177,7 @@ function customizer_api_configuration($customizer_api){
 	for( $i = 1; $i <= PED_FIRST_LINK_SEC_ROWS_AMOUNTS; $i++){
 		$rows_section->add_control(//Control creation
 			"pedigree-columns-section-$i-title",//id
-			RB_Extended_Control,//control class
+			'RB_Extended_Control',//control class
 			array(//Settings creation
 				"pedigree-columns-section-$i-title" => array(
 					'options' => array(
@@ -194,7 +194,7 @@ function customizer_api_configuration($customizer_api){
 		)
 		->add_control(//Control creation
 			"pedigree-columns-section-$i-content",//id
-			RB_Inputs_Generator_Control,//control class
+			'RB_Inputs_Generator_Control',//control class
 			array(//Settings creation
 				"pedigree-columns-section-$i-content" => array(
 					'options' => array(
@@ -314,7 +314,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-social-networks',//id
-		RB_Inputs_Generator_Control,//control class
+		'RB_Inputs_Generator_Control',//control class
 		array(//Settings creation
 			'pedigree-social-networks' => array(
 				'options' => array(
@@ -362,7 +362,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-footer-image',//id
-		WP_Customize_Image_Control,//control class
+		'WP_Customize_Image_Control',//control class
 		array(//Settings creation
 			'pedigree-footer-image' => array(
 				'options' => array(
@@ -377,7 +377,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-footer-text',//id
-		RB_Extended_Control,//control class
+		'RB_Extended_Control',//control class
 		array(//Settings creation
 			'pedigree-footer-text' => array(
 				'options' => array(
@@ -393,7 +393,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-footer-links',//id
-		RB_Inputs_Generator_Control,//control class
+		'RB_Inputs_Generator_Control',//control class
 		array(//Settings creation
 		   'pedigree-footer-links' => array(
 				'options' => array(
@@ -432,7 +432,7 @@ function customizer_api_configuration($customizer_api){
 		)
 		->add_control(//Control creation
 			'pedigree-branches-csv',//id
-			WP_Customize_Image_Control,//control class
+			'WP_Customize_Image_Control',//control class
 			array(//Settings creation
 				'pedigree-branches-csv' => array(
 					'options' => array(
@@ -456,7 +456,7 @@ function customizer_api_configuration($customizer_api){
 		)
 		->add_control(//Control creation
 			'pedigree-add-store-page',//id
-			RB_Single_Input_Control,//control class
+			'RB_Single_Input_Control',//control class
 			array(//Settings creation
 				'pedigree-add-store-page' => array(
 					'options' => array(
@@ -487,7 +487,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-blog-title',//id
-		RB_Extended_Control,//control class
+		'RB_Extended_Control',//control class
 		array(//Settings creation
 			'pedigree-blog-title' => array(
 				'options' => array(
@@ -503,7 +503,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-blog-text',//id
-		RB_Extended_Control,//control class
+		'RB_Extended_Control',//control class
 		array(//Settings creation
 			'pedigree-blog-text' => array(
 				'options' => array(
@@ -530,7 +530,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-food-type-filter',//id
-		RB_Inputs_Control,//control class
+		'RB_Inputs_Control',//control class
 		array(//Settings creation
 			'pedigree-food-type-filter' => array(
 				'options' => array(
@@ -560,7 +560,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-size-filter',//id
-		RB_Inputs_Control,//control class
+		'RB_Inputs_Control',//control class
 		array(//Settings creation
 			'pedigree-size-filter' => array(
 				'options' => array(
@@ -590,7 +590,7 @@ function customizer_api_configuration($customizer_api){
 	)
 	->add_control(//Control creation
 		'pedigree-age-filter',//id
-		RB_Inputs_Control,//control class
+		'RB_Inputs_Control',//control class
 		array(//Settings creation
 			'pedigree-age-filter' => array(
 				'options' => array(

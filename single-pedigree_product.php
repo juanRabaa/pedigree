@@ -32,7 +32,7 @@ get_header();
                 <ul class="triggers">
                     <li de data-content="<?php echo esc_attr(get_the_content()); ?>" class="container trigger active">Descripción</li>
                     <li data-content="<?php echo esc_attr(get_post_meta( $post->ID, 'pedigree_product_ingredients', true )); ?>"  class="container trigger">Ingredientes</li>
-                    <li data-content="<?php echo esc_attr(get_post_meta( $post->ID, 'pedigree_product_guide', true )); ?>"  class="container trigger">Guía de alimentación</li>
+                    <li data-content="<?php echo esc_attr(get_product_guide($post->ID)); ?>"  class="container trigger">Guía de alimentación</li>
                     <li data-content="<?php echo esc_attr(get_product_characteristics_ul( $post->ID )); ?>"  class="container trigger">Características</li>
                 </ul>
                 <div class="container content"><?php the_content(); ?></div>

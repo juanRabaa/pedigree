@@ -107,6 +107,34 @@ $(document).ready(function(){
         },
     };
 
+    function removeURLParameter(url, parameter) {
+        //prefer to use l.search if you have a location/link object
+        var urlparts = url.split('?');
+        if (urlparts.length >= 2) {
+
+            var prefix = encodeURIComponent(parameter) + '=';
+            var pars = urlparts[1].split(/[&;]/g);
+
+            //reverse iteration as may be destructive
+            for (var i = pars.length; i-- > 0;) {
+                //idiom for string.startsWith
+                if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                    pars.splice(i, 1);
+                }
+            }
+
+            return urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : '');
+        }
+        return url;
+    }
+
+    function setAgeUrlParam($elem, ages){
+        let prodCat = ages.join(',');
+        let $anchors = $elem.find('a');
+        let url = removeURLParameter($anchors.first().attr('href'), 'prod_cat');
+        url += `?prod_cat=${prodCat}`;
+        $anchors.attr('href', url);
+    }
 
     $('.rb-wp-filters').each(function(){
         new RB_Filters_Panel($(this), {
@@ -117,7 +145,7 @@ $(document).ready(function(){
                 var sizeCats = filterValues.size ? filterValues.size.map( function(e){ return parseInt(e); } ) : [];
                 var foodTypeCats = filterValues.food_type ? filterValues.food_type.map( function(e){ return parseInt(e); } ) : [];
                 //var avaibleCats = ageCats.concat(sizeCats, foodTypeCats);
-
+                console.log(ageCats);
 
                 $('.post-box').stop().fadeOut( function(){
                     $('.post-box').each( function(){
@@ -130,8 +158,10 @@ $(document).ready(function(){
                         var isCorrectSize = sizeCats.length == 0 || sizeIntersection.length > 0;
                         var isCorrectFoodType = foodTypeCats.length == 0 || foodTypeIntersection.length > 0;
 
-                        if( isCorrectAge && isCorrectSize && isCorrectFoodType )
+                        if( isCorrectAge && isCorrectSize && isCorrectFoodType ){
                             $(this).stop().fadeIn();
+                            setAgeUrlParam($(this), ageCats);
+                        }
 
                     });
                 });

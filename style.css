@@ -1765,6 +1765,8 @@ ul.social a {
     box-sizing:  border-box;
     padding-right:  1rem;
     box-sizing:  border-box;
+    max-height: 40rem;
+    margin-bottom: 2rem;
 }
 
 .related-posts.products-list-boxes .product-image > a {
@@ -1808,11 +1810,11 @@ ul.social a {
 
 .product-table .content:after {
     content:  "";
-    display:  block;
-    height:  100%;
-    width:  100%;
-    position:  absolute;
-    top: 0;
+    /* display:  block; */
+    /* height:  100%; */
+    /* width:  100%; */
+    /* position:  absolute; */
+    /* top: 0; */
     left:  0;
     transition:  all 0.3s;
 }
@@ -1862,6 +1864,7 @@ ul.social a {
         max-width: 100%;
         padding-right: 0;
         margin-bottom: 2rem;
+        max-height: 50rem;
     }
 
     .pedigree-product .product-table .triggers {

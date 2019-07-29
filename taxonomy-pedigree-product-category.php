@@ -35,7 +35,12 @@ get_header();
         <div class="related-posts products-list-boxes">
             <div class="row">
             <?php while ( have_posts() ) : the_post(); ?>
-                <?php pedigree_product_prev_box( $post->ID, array( 'show_buy_button' => false, 'col_size' => $col_size ) ); ?>
+                <?php
+                pedigree_product_prev_box( $post->ID, array(
+                    'show_buy_button'   => false,
+                    'col_size'          => $col_size,
+                    'url_params'        => "?prod_cat=$cat_id",
+                )); ?>
             <?php endwhile; // end of the loop. ?>
             </div>
         </div>
