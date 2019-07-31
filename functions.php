@@ -260,7 +260,7 @@ function get_product_guide($post_id){
 			}
 		}
 	}
-	else{
+	if(!$final_guide){
 		$final_guide = $puppy_guide . $adult_guide . $senior_guide;
 	}
 
