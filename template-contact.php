@@ -14,7 +14,8 @@ get_header();
             <!-- <h1 class="display-4 post-title pedigree-main-color"><?php the_title(); ?></h1> -->
             <div class="post-content">
                  <?php echo the_content(); ?>
-                 <div><script src="//care.mars.com/js/contact.js.aspx?pedigree-com-ar~pedigree.com.ar"></script></script></div>
+                 <div><script type="text/javascript" id="jsFastForms" src="https://sfapi.formstack.io/FormEngine/Scripts/Main.js?d=RUZTrbciR-liPoiMn4MQJF8IYi0f7bwL9KtFGyEBjrJ-UvtqvbdG1pQ8aolOY_1p">
+                 </script>></div>
             </div>
         </div>
         <!--<div class="post-content-box">
@@ -42,7 +43,7 @@ get_header();
                                     <div class="col-12 col-md-6">
                                         <label for="surname" class="required">Apellido</label>
                                         <input type="text" class="form-control form-control-lg" id="surname" required="" name="surname">
-
+​
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -59,43 +60,43 @@ get_header();
                                     <div class="col-12">
                                         <label for="birthday" class="required">Fecha de nacimiento</label>
                                         <input type="date" class="form-control form-control-lg" id="birthday" name="birthday" required="">
-
+​
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12 col-md-6">
                                         <label for="phone" class="">Teléfono</label>
                                         <input type="text" class="form-control form-control-lg" id="phone" name="phone" required="">
-
+​
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <label for="address" class="">Dirección</label>
                                         <input type="text" class="form-control form-control-lg" id="address" name="address" required="">
-
+​
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12 col-md-6">
                                         <label for="number" class="">Número</label>
                                         <input type="text" class="form-control form-control-lg" id="number" name="number" required="">
-
+​
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12 col-md-6">
                                         <label for="postcode" class="">Código Postal</label>
                                         <input type="text" class="form-control form-control-lg" id="postcode" name="postcode" required="">
-
+​
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-12 col-md-6">
                                         <label for="city" class="">Ciudad</label>
                                         <input type="text" class="form-control form-control-lg" id="city" name="city" required="">
-
+​
                                     </div>
                                     <div class="col-12 col-md-6">
-
+​
                                         <label class="required" for="country">País</label>
                                         <select class="form-control form-control-lg" id="country" name="country">
                                           <option>1</option>
