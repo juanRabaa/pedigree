@@ -235,41 +235,108 @@ function get_product_characteristics_ul( $post_id ){
 	return $ul;
 }
 
-function get_product_guide($post_id){
+function pd_get_query_cats(){
+	return isset($_GET['prod_cat']) ? explode(',', $_GET['prod_cat']) : null;
+}
+
+function pd_get_product_guide($post_id){
 	$final_guide = '';
-	$puppy_guide = get_post_meta( $post_id, 'pedigree_product_guide', true );
+	$general_guide = get_post_meta( $post_id, 'pedigree_product_guide', true );
+	$puppy_guide = get_post_meta( $post_id, 'pedigree_product_guide_puppy', true );
 	$adult_guide = get_post_meta( $post_id, 'pedigree_product_guide_adult', true );
 	$senior_guide = get_post_meta( $post_id, 'pedigree_product_guide_senior', true );
+
 	$age_filter_cats = json_decode(get_theme_mod('pedigree-age-filter', ''), true);
 	$prod_cat_filter = pd_get_query_cats();
 	$puppy_included = $adult_included = $senior_included = false;
+	$matched_filters = 0;
 
 	if(is_array($prod_cat_filter) && !empty($prod_cat_filter)){
 		foreach($prod_cat_filter as $cat_filter){
 			if(!$puppy_included && $cat_filter == $age_filter_cats['puppy']){
 				$final_guide .= $puppy_guide;
 				$puppy_included = true;
+				$matched_filters++;
 			}
 			if(!$adult_included && $cat_filter == $age_filter_cats['adult']){
 				$final_guide .= $adult_guide;
 				$adult_included = true;
+				$matched_filters++;
 			}
 			if(!$senior_included && $cat_filter == $age_filter_cats['senior']){
 				$final_guide .= $senior_guide;
 				$senior_included = true;
+				$matched_filters++;
 			}
+
+			if($puppy_guide && $adult_guide && $senior_included)
+				break;
 		}
 	}
-	if(!$final_guide){
-		$final_guide = $puppy_guide . $adult_guide . $senior_guide;
+
+	//No hay descripciones o se paso mas de un filtro de edad
+	if(!$final_guide || ($matched_filters > 1)){
+		if($general_guide)//Hay guia general
+			$final_guide = $general_guide;
+		else if(!$final_guide){//No hay general y no habia guias para las categorias del filtro
+			if($puppy_guide)
+				$final_guide .= "$puppy_guide<br>";
+			if($adult_guide)
+				$final_guide .= "$adult_guide<br>";
+			if($senior_guide)
+				$final_guide .= "$senior_guide";
+		}
 	}
 
 	return $final_guide;
 }
 
-function pd_get_query_cats(){
-	return isset($_GET['prod_cat']) ? explode(',', $_GET['prod_cat']) : null;
+function pd_get_product_description($post_id){
+	$final_description = '';
+	$general_description = apply_filters('the_content', get_post_field('post_content', $post_id));
+	$puppy_description = get_post_meta( $post_id, 'pedigree_product_description_puppy', true );
+	$adult_description = get_post_meta( $post_id, 'pedigree_product_description_adult', true );
+	$senior_description = get_post_meta( $post_id, 'pedigree_product_description_senior', true );
+
+	$age_filter_cats = json_decode(get_theme_mod('pedigree-age-filter', ''), true);
+	$prod_cat_filter = pd_get_query_cats();
+	$puppy_included = $adult_included = $senior_included = false;
+	$matched_filters = 0;
+
+	if(is_array($prod_cat_filter) && !empty($prod_cat_filter)){
+		foreach($prod_cat_filter as $cat_filter){
+			if(!$puppy_included && $cat_filter == $age_filter_cats['puppy']){
+				$final_description .= $puppy_description;
+				$puppy_included = true;
+				$matched_filters++;
+			}
+			if(!$adult_included && $cat_filter == $age_filter_cats['adult']){
+				$final_description .= $adult_description;
+				$adult_included = true;
+				$matched_filters++;
+			}
+			if(!$senior_included && $cat_filter == $age_filter_cats['senior']){
+				$final_description .= $senior_description;
+				$senior_included = true;
+				$matched_filters++;
+			}
+
+			if($matched_filters > 1)
+				break;
+		}
+	}
+
+	//No hay descripciones o se paso mas de un filtro de edad
+	if(!$final_description || ($matched_filters > 1)){
+		if($general_description)
+			$final_description = $general_description;
+		else //Si no hay general, o habia mas de un filtro, mostramos solo el de adulto
+			$final_description = $adult_description;
+	}
+
+	return $final_description;
 }
+
 // =============================================================================
 // SUCURSALES
 // =============================================================================

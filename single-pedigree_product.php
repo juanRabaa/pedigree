@@ -7,7 +7,9 @@ get_header();
 ?>
 <!-- MAIN CONTENT -->
 <div id="main-content">
-    <?php while ( have_posts() ) : the_post(); ?>
+    <?php while ( have_posts() ) : the_post();
+    $prod_description = pd_get_product_description($post->ID);
+    ?>
     <div class="pedigree-product container">
         <div class="row align-items-start">
         	<div class="container product-header col-12 col-md-4">
@@ -30,12 +32,12 @@ get_header();
             <div class="product-table col-12 col-md-8">
                 <h1 class="product-title pedigree-main-color display-4"><?php the_title(); ?></h1>
                 <ul class="triggers">
-                    <li de data-content="<?php echo esc_attr(get_the_content()); ?>" class="container trigger active">Descripción</li>
+                    <li data-content="<?php echo esc_attr($prod_description); ?>" class="container trigger active">Descripción</li>
                     <li data-content="<?php echo esc_attr(get_post_meta( $post->ID, 'pedigree_product_ingredients', true )); ?>"  class="container trigger">Ingredientes</li>
-                    <li data-content="<?php echo esc_attr(get_product_guide($post->ID)); ?>"  class="container trigger">Guía de alimentación</li>
+                    <li data-content="<?php echo esc_attr(pd_get_product_guide($post->ID)); ?>"  class="container trigger">Guía de alimentación</li>
                     <li data-content="<?php echo esc_attr(get_product_characteristics_ul( $post->ID )); ?>"  class="container trigger">Características</li>
                 </ul>
-                <div class="container content"><?php the_content(); ?></div>
+                <div class="container content"><?php echo $prod_description; ?></div>
             </div>
         </div>
     </div>
