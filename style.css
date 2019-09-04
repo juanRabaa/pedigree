@@ -1824,6 +1824,10 @@ ul.social a {
     transition:  all 0.2s;
 }
 
+.product-table .content * {
+    font-size: 1.6rem;
+}
+
 .product-table .content.animating:after {
     background-color: #ffffff;
     transition: all 0s;
