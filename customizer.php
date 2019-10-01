@@ -9,8 +9,8 @@ function customizer_api_configuration($customizer_api){
 			'priority'       => 1,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
-			'title'          => __('Front page', 'pedigree-genosha'),
-			'description'    => __('Configuración del front page', 'pedigree-genosha'),
+			'title'          => __('Front page', 'whiskas-genosha'),
+			'description'    => __('Configuración del front page', 'whiskas-genosha'),
 		)
 	);
 
@@ -18,7 +18,7 @@ function customizer_api_configuration($customizer_api){
 		$customizer_api->add_section(
 			'pedigree-featured-post',
 			array(
-		        'title'     => __('Artículo destacado', 'pedigree-genosha'),
+		        'title'     => __('Artículo destacado', 'whiskas-genosha'),
 		        'priority'  => 1,
 				'panel'  	=> 'front_page_panel',
 		    ),
@@ -43,36 +43,36 @@ function customizer_api_configuration($customizer_api){
 				)
 			),
 			array(//Control options
-				'label'      			=> __( 'Cover', 'pedigree-genosha' ),
+				'label'      			=> __( 'Cover', 'whiskas-genosha' ),
 				'inputs_types'       	=> array(
 					'use_most_recent'	=>	array(
-						'nice_name'		=>	__( 'Usar post más reciente', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Usar post más reciente', 'whiskas-genosha' ),
 						'type'			=>  "checkbox",
 						'dependencies'	=> 'post_id',
 						'reverse_dependencies'	=> true,
 						'default'		=> true,
 					),
 					'post_id'				=>	array(
-						'nice_name'		=>	__( 'Post', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Post', 'whiskas-genosha' ),
 						'type'			=>  "post",
 						//'dependencies'	=> 'use_post_data',
 					),
 					'use_post_data'		=>	array(
-						'nice_name'		=>	__( 'Usar datos del post', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Usar datos del post', 'whiskas-genosha' ),
 						'type'			=>  "checkbox",
 						'dependencies'	=> 'title,text,image',
 						'reverse_dependencies'	=> true,
 					),
 					'title'				=>	array(
-						'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Título', 'whiskas-genosha' ),
 						'type'			=>  "text",
 					),
 					'text'				=>	array(
-						'nice_name'		=>	__( 'Texto', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Texto', 'whiskas-genosha' ),
 						'type'			=>  "text",
 					),
 					'image'		=>	array(
-						'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
+						'nice_name'		=>	__( 'Imagen', 'whiskas-genosha' ),
 						'type'			=>  "image",
 					),
 				),
@@ -83,7 +83,7 @@ function customizer_api_configuration($customizer_api){
 	$customizer_api->add_section(
 		'pedigree-slider',
 		array(
-	        'title'     => __('Slider', 'pedigree-genosha'),
+	        'title'     => __('Slider', 'whiskas-genosha'),
 	        'priority'  => 1,
 			'panel'  	=> 'front_page_panel',
 	    ),
@@ -109,44 +109,44 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Slide', 'pedigree-genosha' ),
+			'label'      			=> __( 'Slide', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'name'				=>	array(
-					'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Título', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'background_image'		=>	array(
-					'nice_name'		=>	__( 'Imagen de fondo', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Imagen de fondo', 'whiskas-genosha' ),
 					'type'			=>  "image",
 				),
 				'text'				=>	array(
-					'nice_name'		=>	__( 'Descripción', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Descripción', 'whiskas-genosha' ),
 					//'type'			=>  "texteditor",
 					'type'			=>  "textarea",
 				),
 				'side_image'		=>	array(
-					'nice_name'		=>	__( 'Imagen de contenido', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Imagen de contenido', 'whiskas-genosha' ),
 					'type'			=>  "image",
 				),
 				'side_image_link'	=>	array(
-					'nice_name'		=>	__( 'Link de la imagen', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link de la imagen', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'video_id'				=>	array(
-					'nice_name'		=>	__( 'ID video de Youtube', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'ID video de Youtube', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link/URL', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'button_text'		=> array(
-					'nice_name'		=>	__( 'Texto del botón', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Texto del botón', 'whiskas-genosha' ),
 					'type'			=>  "text",
 					'default'		=>  "MÁS INFO",
 				),
 				'reverse'			=>	array(
-					'nice_name'		=>	__( 'Descripción a la izquierda', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Descripción a la izquierda', 'whiskas-genosha' ),
 					'type'			=>  "checkbox",
 				),
 			),
@@ -159,7 +159,7 @@ function customizer_api_configuration($customizer_api){
 	$customizer_api->add_section(
 		'pedigree-triple-content-1',
 		array(
-	        'title'     => __('Links 1', 'pedigree-genosha'),
+	        'title'     => __('Links 1', 'whiskas-genosha'),
 	        'priority'  => 1,
 			'panel'  	=> 'front_page_panel',
 	    ),
@@ -185,7 +185,7 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      		=> __( 'Título', 'pedigree-genosha' ),
+			'label'      		=> __( 'Título', 'whiskas-genosha' ),
 			'type'           	=> 'text',
 		)
 	)
@@ -201,19 +201,23 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Columnas', 'pedigree-genosha' ),
+			'label'      			=> __( 'Columnas', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'name'				=>	array(
-					'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Título', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'image'				=>	array(
-					'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Imagen', 'whiskas-genosha' ),
 					'type'			=>  "image",
 				),
 				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link/URL', 'whiskas-genosha' ),
 					'type'			=>  "text",
+				),
+				'alt_color'			=>	array(
+					'nice_name'		=>	__( 'Color alternativo', 'whiskas-genosha' ),
+					'type'			=>  "checkbox",
 				),
 			),
 			'inputs_title'			=> "Columna",
@@ -221,10 +225,10 @@ function customizer_api_configuration($customizer_api){
 		)
 	);
 
-	$customizer_api->add_section(
+	/*$customizer_api->add_section(
 		'pedigree-triple-content-2',
 		array(
-	        'title'     => __('Links 2', 'pedigree-genosha'),
+	        'title'     => __('Links 2', 'whiskas-genosha'),
 	        'priority'  => 1,
 			'panel'  	=> 'front_page_panel',
 	    ),
@@ -250,7 +254,7 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      		=> __( 'Título', 'pedigree-genosha' ),
+			'label'      		=> __( 'Título', 'whiskas-genosha' ),
 			'type'           	=> 'text',
 		)
 	)
@@ -266,30 +270,30 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Columnas', 'pedigree-genosha' ),
+			'label'      			=> __( 'Columnas', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'name'				=>	array(
-					'nice_name'		=>	__( 'Título', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Título', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'image'				=>	array(
-					'nice_name'		=>	__( 'Imagen', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Imagen', 'whiskas-genosha' ),
 					'type'			=>  "image",
 				),
 				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link/URL', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 			),
 			'inputs_title'			=> "Columna",
 			'dinamic_label'			=> 'name',
 		)
-	);
+	);*/
 
 	$customizer_api->add_section(
 		'pedigree-social',
 		array(
-	        'title'     => __('Redes sociales', 'pedigree-genosha'),
+	        'title'     => __('Redes sociales', 'whiskas-genosha'),
 	        'priority'  => 2,
 	    ),
 		array(
@@ -313,19 +317,19 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Redes Sociales', 'pedigree-genosha' ),
+			'label'      			=> __( 'Redes Sociales', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'name'				=>	array(
-					'nice_name'		=>	__( 'Nombre', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Nombre', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'fa'				=>	array(
-					'nice_name'		=>	__( 'Icono', 'pedigree-genosha' ),
-					'description'	=>  __( 'De fontawesome', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Icono', 'whiskas-genosha' ),
+					'description'	=>  __( 'De fontawesome', 'whiskas-genosha' ),
 					'type'			=>  "fontawesome",
 				),
 				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link/URL', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 			),
@@ -337,7 +341,7 @@ function customizer_api_configuration($customizer_api){
 	$customizer_api->add_section(
 		'pedigree-footer',
 		array(
-	        'title'     => __('Footer', 'pedigree-genosha'),
+	        'title'     => __('Footer', 'whiskas-genosha'),
 	        'priority'  => 3,
 	    ),
 		array(
@@ -361,7 +365,7 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      		=> __( 'Imagen', 'pedigree-genosha' ),
+			'label'      		=> __( 'Imagen', 'whiskas-genosha' ),
 		)
 	)
 	->add_control(//Control creation
@@ -376,7 +380,7 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      		=> __( 'Texto', 'pedigree-genosha' ),
+			'label'      		=> __( 'Texto', 'whiskas-genosha' ),
 			'type'           	=> 'textarea',
 		)
 	)
@@ -392,14 +396,14 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Links', 'pedigree-genosha' ),
+			'label'      			=> __( 'Links', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'text'				=>	array(
-					'nice_name'		=>	__( 'Texto', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Texto', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 				'url'				=>	array(
-					'nice_name'		=>	__( 'Link/URL', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Link/URL', 'whiskas-genosha' ),
 					'type'			=>  "text",
 				),
 			),
@@ -412,7 +416,7 @@ function customizer_api_configuration($customizer_api){
 		$customizer_api->add_section(
 			'pedigree-branches',
 			array(
-		        'title'     => __('Sucursales', 'pedigree-genosha'),
+		        'title'     => __('Sucursales', 'whiskas-genosha'),
 		        'priority'  => 3,
 		    ),
 			array(
@@ -431,37 +435,32 @@ function customizer_api_configuration($customizer_api){
 				)
 			),
 			array(//Control options
-				'label'      		=> __( 'CSV', 'pedigree-genosha' ),
+				'label'      		=> __( 'CSV', 'whiskas-genosha' ),
 				'button_labels'		=> array(
-					'select'       => __( 'Seleccionar .csv', 'pedigree-genosha' ),
-					'change'       => __( 'Cambiar .csv', 'pedigree-genosha' ),
-					'remove'       => __( 'Quitar', 'pedigree-genosha' ),
-					'placeholder'  => __( 'Seleccione archivo .csv', 'pedigree-genosha' ),
-					'frame_title'  => __( 'Seleccionar .csv', 'pedigree-genosha' ),
-					'frame_button' => __( 'Elegir .csv', 'pedigree-genosha' ),
+					'select'       => __( 'Seleccionar .csv', 'whiskas-genosha' ),
+					'change'       => __( 'Cambiar .csv', 'whiskas-genosha' ),
+					'remove'       => __( 'Quitar', 'whiskas-genosha' ),
+					'placeholder'  => __( 'Seleccione archivo .csv', 'whiskas-genosha' ),
+					'frame_title'  => __( 'Seleccionar .csv', 'whiskas-genosha' ),
+					'frame_button' => __( 'Elegir .csv', 'whiskas-genosha' ),
 				),
 				'mime_type'			=> 'text/csv',
 			)
 		)
 		->add_control(//Control creation
-			'pedigree-branches-page',//id
-			RB_Inputs_Control,//control class
+			'pedigree-add-store-page',//id
+			RB_Single_Input_Control,//control class
 			array(//Settings creation
-				'pedigree-branches-page' => array(
+				'pedigree-add-store-page' => array(
 					'options' => array(
 						'transport' => 'postMessage',
-						'default'	=> '',
+						'default'	=> -1,
 					),
 				)
 			),
 			array(//Control options
-				'label'      			=> __( 'Página', 'pedigree-genosha' ),
-				'inputs_types'       	=> array(
-					'page_id'				=>	array(
-						'nice_name'		=>	__( 'Página', 'pedigree-genosha' ),
-						'type'			=>  "page",
-					),
-				),
+				'label'      			=> __( 'Página de formulario  nueva tienda', 'whiskas-genosha' ),
+				'input_type'       		=> "page",
 				'inputs_title'			=> "Página",
 				'dinamic_label'			=> 'page',
 			)
@@ -471,7 +470,7 @@ function customizer_api_configuration($customizer_api){
 	$customizer_api->add_section(
 		'pedigree-blog',
 		array(
-	        'title'     => __('Blog', 'pedigree-genosha'),
+	        'title'     => __('Blog', 'whiskas-genosha'),
 	        'priority'  => 3,
 			'description'	=> 'Datos a usar en la página seleccionada como blog',
 	    ),
@@ -486,12 +485,12 @@ function customizer_api_configuration($customizer_api){
 			'pedigree-blog-title' => array(
 				'options' => array(
 					'transport' => 'postMessage',
-					'default'	=> 'Articulos Pedigree®',
+					'default'	=> 'Articulos Whiskas®',
 				),
 			)
 		),
 		array(//Control options
-			'label'      		=> __( 'Título', 'pedigree-genosha' ),
+			'label'      		=> __( 'Título', 'whiskas-genosha' ),
 			'type'           	=> 'text',
 		)
 	)
@@ -507,7 +506,7 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-				'label'      		=> __( 'Texto', 'pedigree-genosha' ),
+				'label'      		=> __( 'Texto', 'whiskas-genosha' ),
 			'type'           	=> 'textarea',
 		)
 	);
@@ -515,7 +514,7 @@ function customizer_api_configuration($customizer_api){
 	$customizer_api->add_section(
 		'pedigree-product-filters',
 		array(
-	        'title'     => __('Filtro de productos', 'pedigree-genosha'),
+	        'title'     => __('Filtro de productos', 'whiskas-genosha'),
 	        'priority'  => 3,
 	    ),
 		array(
@@ -534,18 +533,18 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Tipo de alimento', 'pedigree-genosha' ),
+			'label'      			=> __( 'Tipo de alimento', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'dry'				=>	array(
-					'nice_name'		=>	__( 'Secos', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Secos', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'moist'				=>	array(
-					'nice_name'		=>	__( 'Húmedos', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Húmedos', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'snacks'				=>	array(
-					'nice_name'		=>	__( 'Snacks', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Snacks', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 			),
@@ -564,18 +563,18 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Tamaño del perro', 'pedigree-genosha' ),
+			'label'      			=> __( 'Tamaño del perro', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'small'				=>	array(
-					'nice_name'		=>	__( 'Pequeño', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Pequeño', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'medium'				=>	array(
-					'nice_name'		=>	__( 'Mediano', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Mediano', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'big'				=>	array(
-					'nice_name'		=>	__( 'Grande', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Grande', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 			),
@@ -594,18 +593,18 @@ function customizer_api_configuration($customizer_api){
 			)
 		),
 		array(//Control options
-			'label'      			=> __( 'Edad del perro', 'pedigree-genosha' ),
+			'label'      			=> __( 'Edad del perro', 'whiskas-genosha' ),
 			'inputs_types'       	=> array(
 				'puppy'				=>	array(
-					'nice_name'		=>	__( 'Cachorro', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Gatito', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'adult'				=>	array(
-					'nice_name'		=>	__( 'Adulto', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Adulto', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 				'senior'				=>	array(
-					'nice_name'		=>	__( 'Adulto 7+', 'pedigree-genosha' ),
+					'nice_name'		=>	__( 'Adulto 7+', 'whiskas-genosha' ),
 					'type'			=>  "pedigree-category",
 				),
 			),

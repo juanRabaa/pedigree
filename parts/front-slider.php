@@ -39,7 +39,7 @@ $slides = json_decode(get_theme_mod('pedigree-slider-content', ''), true);
 			<div class="container content <?php echo $reverse_class; ?>">
 				<div class="row">
 					<div class="text col-12 col-sm-8 <?php echo $text_col_class; ?>">
-						<h1 class="display-3 title pedigree-main-color pedigree-light"><?php echo $slide['name']; ?></h1>
+						<h1 class="display-3 title pedigree-main-color"><?php echo $slide['name']; ?></h1>
 						<div class="slider-text">
 							<p><?php echo $slide['text']; ?></p>
 						</div>

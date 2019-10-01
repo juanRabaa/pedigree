@@ -30,7 +30,7 @@ else{
 
 <div class="sec article" id="featured-post-section">
 	<div class="title container">
-		<h1 class="scr">Artículos Pedigree</h1>
+		<h1 class="scr">Artículos Whiskas®</h1>
 	</div>
 	<div class="article-image" style="background-image: url(<?php echo $image_src; ?>);"></div>
 	<div class="container post-info-container">

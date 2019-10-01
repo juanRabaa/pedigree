@@ -1,5 +1,5 @@
-/*
-Theme Name: Pedigree
+avenirltstd-light-35/*
+Theme Name: Whiskas
 Theme URI:
 Author: Juan Cruz Rabaglia
 Author URI:
@@ -175,32 +175,22 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
     font-family: pedigree;
     font-weight: bold;
     font-style: normal;
-    src: url("assets/fonts/pedigree-bold/pedigree-bold.eot");
-    src: url("assets/fonts/pedigree-bold/pedigree-boldd41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-bold/pedigree-bold.woff") format("woff"), url("assets/fonts/pedigree-bold/pedigree-bold.ttf") format("truetype"), url("assets/fonts/pedigree-bold/pedigree-bold.svg#pedigree-bold") format("svg");
-}
-
-@font-face {
-    font-family: pedigree;
-    font-weight: bolder;
-    font-style: normal;
-    src: url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.eot");
-    src: url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultrad41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.woff") format("woff"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.ttf") format("truetype"), url("assets/fonts/pedigree-bold-ultra/pedigree-bold-ultra.svg#pedigree-bold-ultra") format("svg");
+    src: url("assets/fonts/avenir-bold/AvenirBold-webfont.eot");
+    src: url("assets/fonts/pedigree-bold/pedigree-boldd41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-bold/AvenirBold-webfont.woff") format("woff"), url("assets/fonts/avenir-bold/AvenirBold-webfont.ttf") format("truetype"), url("assets/fonts/avenir-bold/AvenirBold-webfont.svg") format("svg");
 }
 
 @font-face {
     font-family: pedigree;
     font-weight: normal;
     font-style: normal;
-    src: url("assets/fonts/pedigree-light/pedigree-light.eot");
-    src: url("assets/fonts/pedigree-light/pedigree-lightd41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-light/pedigree-light.woff") format("woff"), url("assets/fonts/pedigree-light/pedigree-light.ttf") format("truetype"), url("assets/fonts/pedigree-light/pedigree-light.svg#pedigree-light") format("svg");
+    src: url("assets/fonts/avenirltstd-light-35/avenirltstd-light-35.eot");
+    src: url("assets/fonts/avenirltstd-light-35/avenirltstd-light-35d41d.eot") format("embedded-opentype"), url("assets/fonts/avenirltstd-light-35/avenirltstd-light-35.woff") format("woff"), url("assets/fonts/avenirltstd-light-35/avenirltstd-light-35.ttf") format("truetype"), url("assets/fonts/avenirltstd-light-35/avenirltstd-light-35.svg") format("svg");
 }
 
 @font-face {
-    font-family: pedigree;
-    font-weight: normal;
-    font-style: italic;
-    src: url("assets/fonts/pedigree-light-italic/pedigree-light-italic.eot");
-    src: url("assets/fonts/pedigree-light-italic/pedigree-light-italicd41d.eot?#iefix") format("embedded-opentype"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.woff") format("woff"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.ttf") format("truetype"), url("assets/fonts/pedigree-light-italic/pedigree-light-italic.svg#pedigree-light-italic") format("svg");
+    font-family: pedigree-roman;
+    src: url("assets/fonts/avenirltstd-roman-55/avenirltstd-roman-55.eot");
+    src: url("assets/fonts/avenirltstd-roman-55/avenirltstd-roman-55d41d.eot") format("embedded-opentype"), url("assets/fonts/avenirltstd-roman-55/avenirltstd-roman-55.woff") format("woff"), url("assets/fonts/avenirltstd-roman-55/avenirltstd-roman-55.ttf") format("truetype"), url("assets/fonts/avenirltstd-roman-55/avenirltstd-roman-55.svg") format("svg");
 }
 
 @font-face {
@@ -217,7 +207,13 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
 }
 
 :root {
-    --pd-color: #fec118;
+    --pd-color: #770066;
+    --pd-color-darker: #58004c;
+    --pd-color-lighter: #ad0094;
+    --pd-color-bright: #f700d4;
+    --pd-alt-color: #ee7235;
+    --pd-alt-color-bright: #ff9336;
+    --pd-alt-color-brighter: #ffcc9f;
 }
 
 body {
@@ -237,9 +233,8 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
-    font-family: 'pedigree', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'pedigree-roman', "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.1;
-    /* font-weight: bold; */
 }
 
 .pedigree-main-color {
@@ -323,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .slider.home {
     height: calc(100vh - 11rem);
-    background-color: #f8ae0e;
+    background-color: var(--pd-color-darker);
     padding-top:  0;
     padding-bottom: 0;
     position:  relative;
@@ -358,11 +353,14 @@ h1, h2, h3, h4, h5, h6 {
 	text-align:  center;
 	user-select: none;
 	cursor: pointer;
+	border-radius: 3rem;
+	background-color: var(--pd-color);
+	border-color: var(--pd-color);
 }
 
 .more-button:hover {
-    color: #000000;
-    border-color: #000000;
+    color: #ffffff;
+    border-color: var(--pd-color);
 }
 
 .more-button.white {
@@ -390,11 +388,15 @@ h1, h2, h3, h4, h5, h6 {
     text-overflow: ellipsis;
     overflow: hidden;
     margin-right: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    /* letter-spacing: 1px; */
 }
 
 .more-button > i {
     font-size: 3rem;
     justify-self: flex-end;
+    color: #ffffff;
 }
 
 .more-button.black {
@@ -512,7 +514,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .list .list-item .product .title > * {
     font-size: 2.4rem;
-    font-weight: 400;
 }
 
 .row.products-list {
@@ -540,7 +541,6 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width: 992px){
     .sec .title > * {
         font-size: 4.5rem;
-        font-weight: bold;
     }
 
     .list .list-item .product .title > *{
@@ -575,7 +575,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-top .menu2 ul li {
     border-bottom: 0.1rem solid;
-    border-color: #fed258 !important;
+    border-color: var(--pd-color-lighter) !important;
     /* float: left; */
     width: auto;
     text-align: center;
@@ -613,7 +613,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'pedigree';
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
-    font-weight: bold;
 }
 
 .footer-top .menu2 ul li a.subfooter {
@@ -778,7 +777,7 @@ ul.social a {
     background: var(--pd-color);
     padding: 0 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 0.1rem solid #fed258;
+    border-bottom: 0.1rem solid var(--pd-color-lighter);
     position: absolute;
     left: 0;
 }
@@ -802,7 +801,7 @@ ul.social a {
 .menu .menu-content .main li {
     width: 100%;
     text-align: left;
-    background: #ffcf49;
+    background: var(--pd-color-lighter);
     margin-bottom: 0.3rem;
     transition:  all 0.3s;
 }
@@ -830,7 +829,7 @@ ul.social a {
     color: #FFF;
     border-right: 2px solid;
     border-color: #dfa70e;
-    font-family: 'pedigree';
+    font-family: 'pedigree-roman';
     -webkit-transition: color 0.5s, background-position 0.5s ease;
     transition: color 0.5s, background-position 0.5s ease;
 }
@@ -842,9 +841,8 @@ ul.social a {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.5rem;
-    color: #000;
+    color: #fff;
     padding:  0;
-    font-weight: 800;
 }
 
 .menu ul li a:hover, .menu ul li a.active {
@@ -879,7 +877,7 @@ ul.social a {
 
 .menu .menu-content .main li.submenu-button.active, .menu .menu-content .main li.submenu-button.opening {
     background-position: 96% -38px;
-    background-color: #000;
+    background-color: #fff;
 }
 
 .menu .menu-content .main li.submenu-button.active a, .menu .menu-content .main li.submenu-button.active i, .menu .menu-content .main li.submenu-button.opening a, .menu .menu-content .main li.submenu-button.opening i {
@@ -924,7 +922,7 @@ ul.social a {
 
 
 .menu .menu-content .main li .menu-sub li {
-    background: #000;
+    background: #fff;
 }
 
 
@@ -977,7 +975,7 @@ ul.social a {
     width:  20%;
     display:  inline-block;
     text-align:  right;
-    color: #000000;
+    color: #ffffff;
     height: 2.5rem;
     cursor: pointer;
 }
@@ -1087,6 +1085,8 @@ ul.social a {
         border-color: rgba(0, 0, 0, 0.21);
         font-size: 1.4rem;
         /* padding: 0 1rem; */
+        font-weight: bold;
+        letter-spacing: 0.7px;
     }
 
     .header .menu ul li a.active {
@@ -1168,7 +1168,7 @@ ul.social a {
 		transition-delay: 0s;
 		display: inline-block;
 		height: max-content;
-        display: table;
+        /*display: table;*/
 	}
 
 	.menu .menu-content .main li .menu-sub li a{
@@ -1213,12 +1213,14 @@ ul.social a {
 		height: 10rem;
 		transition:   all 0.3s;
 		max-width: 14rem;
+		position: relative;
+		top: 0.6rem;
 	}
 
 	.header.fixed .logo a img {
-		/* height: 4.5rem; */
+		height: 6rem;
 		position:  relative;
-		top: -2.5rem;
+		top: -0.4rem;
 	}
 
 	.menu ul {
@@ -1387,7 +1389,7 @@ ul.social a {
 .more-button.pedigree-main-color.whole {
     background-color: var(--pd-color);
     color: #000000;
-    border-color: transparent;
+    border-color: var(--pd-color);
 }
 
 .more-button.pedigree-main-color.whole:hover {
@@ -1795,6 +1797,7 @@ ul.social a {
 .product-table .triggers .trigger.active {
     background-color: var(--pd-color);
     cursor:  default;
+    color: #ffffff;
     /* border-bottom-width: 0; */
     border-top-width: 0.3rem;
     padding-left: 3rem;
@@ -1809,6 +1812,7 @@ ul.social a {
     top: 0;
     left:  0;
     transition:  all 0.3s;
+    z-index: -2;
 }
 
 .product-table .content {
@@ -1819,6 +1823,7 @@ ul.social a {
 .product-table .content.animating:after {
     background-color: #ffffff;
     transition: all 0s;
+    z-index: 1;
 }
 
 .pedigree-product .product-table .product-title{
@@ -1831,7 +1836,6 @@ ul.social a {
 
 .pedigree-product .product-title {
     margin-bottom:  2rem;
-    font-weight: bold;
 }
 
 .pedigree-product .buy-button {
@@ -1911,7 +1915,7 @@ ul.social a {
 
 .product-table .content .product-characteristics li {
     padding: 1rem 0;
-    border-bottom: solid 0.1rem #fee395;
+    border-bottom: solid 0.1rem var(--pd-color-bright);
 }
 
 .product-table .content .product-characteristics li .value {
@@ -2083,6 +2087,10 @@ ul.social a {
     padding: 4rem 2rem;
 }
 
+.category-header .category-info *{
+	color: #000000;
+}
+
 .category-header.sec.separator > .separator-image{
     min-height: 22rem;
     height: auto;
@@ -2231,6 +2239,7 @@ ul.social a {
     margin-right: 0.3rem;
     cursor: pointer;
     user-select: none;
+    font-weight: bold;
 }
 
 .filter-options li.selected {
@@ -2375,7 +2384,6 @@ ul.social a {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 3rem;
-    font-weight: bold;
 }
 
 #purchase-options .section-map .sec-header .title {
@@ -2461,4 +2469,155 @@ ul.social a {
 	#purchase-options .sec-header .title, #purchase-options .section-map .sec-header .title {
 		margin-bottom: 2rem;
 	}
+}
+
+
+/* ========================================================================== */
+/* Contact form compability */
+/* ========================================================================== */
+.contactForm .header {
+    display: none!important;
+}
+
+.header .logo a img {
+    padding: 0.7rem!important;
+}
+
+.form-group.custom-select.DisableForQForm {
+    border: 0!important;
+    background: none!important;
+}
+
+.form-group.custom-select.DisableForQForm:after {
+    display: nonev;
+    background: none!important;
+}
+
+.captcha {
+    padding-bottom: 150px!important;
+}
+
+.contactForm .form-group input[type="button"] {
+    background-color: var(--pd-color)!important;
+    color: #ffffff!important;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contactForm .form {
+    margin: 0 auto!important;
+    display: block!important;
+}
+
+#products-filter .filter .title {
+    font-weight: bold;
+}
+
+/* ========================================================================== */
+/* ADD NEW STORE FORM */
+/* ========================================================================== */
+form span.required > i {
+    color: red;
+    font-size: 69%;
+    position: relative;
+    top: -0.2rem;
+    left: 0.4rem;
+}
+
+
+form .form-control {
+    font-size: 1.4rem;
+    height: auto;
+}
+
+form label {
+    font-size: 1.7rem;
+    color: #002d4e;
+    font-weight: 600;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+#new-vet-form .new-ndf {
+    /* display: none; */
+}
+
+.form-response .title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-response {
+    text-align: center;
+    display: none;
+}
+
+.form-response p {
+    font-size: 2rem;
+}
+
+.form-response img {
+    width: 40%;
+    /* position: relative; */
+    bottom: -1.8rem;
+}
+
+#main-content.form-submited + #footer {
+    margin-top: 0;
+}
+
+#main-content.form-submited .post-content-box {
+    padding-bottom: 0;
+}
+
+#main-content .post-content-box {
+    transition: padding 0.2s;
+}
+
+.success-message .title{
+    color: var(--pd-color);
+}
+
+.form-response.error-message .title {
+    color: #fe1818;
+}
+
+#new-vet-form .group-marcas {
+    margin-bottom: 5rem;
+}
+
+.form-new-place-page + #footer .sec.separator{
+    display: none;
+}
+
+@keyframes twinkle-border-error {
+	0% {
+		border-color: #ced4da;
+    	box-shadow: 0px 0px 0px red;
+    }
+	20% {
+		border-color: red;
+    	box-shadow: 0px 0px 8px red
+	}
+	40% {
+		border-color: #ced4da;
+    	box-shadow: 0px 0px 0px red;
+    }
+    80% {
+		border-color: red;
+    	box-shadow: 0px 0px 8px red
+    }
+	100% {
+		border-color: #ced4da;
+    	box-shadow: 0px 0px 0px red;
+    }
+}
+
+.input-error{
+	 animation-name: twinkle-border-error;
+	 animation-duration: 3s; /* or: Xms */
+	 animation-iteration-count: 1;
 }

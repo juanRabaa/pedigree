@@ -34,31 +34,33 @@
 	                <ul class="main">
 						<?php
 							$menu_items = get_menu_items_by_registered_slug('header_menu');
-							foreach($menu_items as $item):
-								$has_childrens = isset($item->childrens) && isset($item->childrens[0]);
-								$href_attr = $item->url ? 'href="'.$item->url.'"' : '';
-								if(!$has_childrens):
-								?>
-								<li>
-									<div class="menu-item-title">
-										<a class="home-navi" <?php echo $href_attr; ?> title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
-									</div>
-								</li>
-							<?php else: ?>
-								<li class="submenu-button">
-									<div class="menu-item-title">
-				                        <a class="product-navi" <?php echo $href_attr; ?> title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
-				                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
-									</div>
-			                        <ul class="menu-sub">
-										<?php foreach($item->childrens as $sub_item): ?>
-											<?php $href_attr = $sub_item->url ? 'href="'.$sub_item->url.'"' : ''; ?>
-			                            	<li><a <?php echo $href_attr; ?>><?php echo $sub_item->title; ?></a></li>
-										<?php endforeach; ?>
-			                        </ul>
-			                    </li>
-							<?php endif;
-							endforeach;
+							if( is_array($menu_items) ):
+								foreach($menu_items as $item):
+									$has_childrens = isset($item->childrens) && isset($item->childrens[0]);
+									$href_attr = $item->url ? 'href="'.$item->url.'"' : '';
+									if(!$has_childrens):
+									?>
+									<li>
+										<div class="menu-item-title">
+											<a class="home-navi" <?php echo $href_attr; ?> title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
+										</div>
+									</li>
+								<?php else: ?>
+									<li class="submenu-button">
+										<div class="menu-item-title">
+					                        <a class="product-navi" <?php echo $href_attr; ?> title="<?php echo $item->title; ?>"><?php echo $item->title; ?></a>
+					                        <div class="down-button"><i class="fas fa-sort-down"></i></div>
+										</div>
+				                        <ul class="menu-sub">
+											<?php foreach($item->childrens as $sub_item): ?>
+												<?php $href_attr = $sub_item->url ? 'href="'.$sub_item->url.'"' : ''; ?>
+				                            	<li><a <?php echo $href_attr; ?>><?php echo $sub_item->title; ?></a></li>
+											<?php endforeach; ?>
+				                        </ul>
+				                    </li>
+								<?php endif;
+								endforeach;
+							endif;
 						?>
 	                </ul>
 	                <div class="mobile-toparea d-lg-none d-xl-none">

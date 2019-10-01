@@ -4,7 +4,7 @@
 */
 get_header();
 
-$title = get_theme_mod('pedigree-blog-title', __('Articulos Pedigree®', 'pedigree-genosha'));
+$title = get_theme_mod('pedigree-blog-title', __('Articulos Whiskas®', 'pedigree-genosha'));
 $text = get_theme_mod('pedigree-blog-text', '');
 ?>
 <!-- MAIN CONTENT -->

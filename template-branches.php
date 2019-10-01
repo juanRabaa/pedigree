@@ -71,7 +71,20 @@ get_header();
                             'faw'       => 'fas fa-map-marker-alt',
                         )); ?>
                     </div>
-                    <div id="stores-map" src="https://lacasadelasospecha.files.wordpress.com/2013/02/imagen-11.png?w=748"></div>
+                    <div id="stores-map"></div>
+                    <?php
+                    $form_page_id = get_theme_mod('pedigree-add-store-page', -1);
+                    if( $form_page_id && $form_page_id != -1 ): ?>
+                    <div>
+                        <?php pedigree_more_button(array(
+                            'text'  	=> 'AGREGAR MI TIENDA',
+                            'classes'	=> 'full-width nowrap',
+                            'id'        => 'addstore-button',
+                            'icon'      => false,
+                            'url'       => get_permalink($form_page_id),
+                        )); ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

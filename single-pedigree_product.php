@@ -53,7 +53,7 @@ get_header();
             <div class="col-12 col-md-6 section-buy-online">
                 <div class="sec-header">
                     <h2 class="title">Comprar Online</h2>
-                       <p>Elegí una de las tiendas para comprar online este producto PEDIGREE</p>
+                       <p>Elegí una de las tiendas para comprar online este producto Whiskas®</p>
                 </div>
                 <?php print_stores_logos( $stores ); ?>
             </div>

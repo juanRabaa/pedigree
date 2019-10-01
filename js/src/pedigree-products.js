@@ -14,7 +14,7 @@ $(document).ready(function(){
         // }, 200);
         setTimeout(function(){
             $contentElement.removeClass('animating');
-        }, 1);
+        }, 100);
     }
 
     function activateTab($tab){

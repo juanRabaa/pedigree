@@ -1,6 +1,5 @@
 <?php
-define('PEDIGREE_STORES_ACTIVATED', true);
-define('PED_FEATURED_POST', true);
+require get_template_directory() . '/theme-config.php';
 
 add_theme_support( 'post-thumbnails' );
 add_post_type_support( 'page', 'excerpt' );
@@ -37,6 +36,13 @@ function pedigree_load_scripts() {
 		wp_enqueue_script( "pedigree-purchase-section-script", get_template_directory_uri()."/js/src/pedigree-purchase-template-script.js", true );
 	}
 
+	if(is_page_template('template-nuevo-local.php')){
+		//FORM JAVASCRIPT
+		wp_enqueue_script( "pedigree-new-local-form", get_template_directory_uri()."/js/src/pedigree-new-local-form.js", true );
+		wp_localize_script( "pedigree-new-local-form", 'wp_data', array(
+			'ajaxurl'	=> admin_url( 'admin-ajax.php' ),
+		));
+	}
 
 	if(is_front_page() ){
 		wp_enqueue_script( "hammer-js", get_template_directory_uri()."/js/libs/hammer.js", true );
@@ -58,6 +64,27 @@ if( !PEDIGREE_STORES_ACTIVATED ){
 		return $page_templates;
 	}
 }
+
+if( !PED_NEW_LOCAL_FORM ){
+	add_filter( 'theme_page_templates', function($page_templates){
+		unset( $page_templates['template-nuevo-local.php'] );
+		return $page_templates;
+	});
+}
+else{
+	require_once get_template_directory() . '/inc/new-local-form-handler.php';
+
+	add_filter( 'page_template', 'single_page_template' );
+	function single_page_template( $template ){
+		$form_page_id = get_theme_mod('pedigree-add-store-page', -1);
+		$current_page_id = get_queried_object_id();
+		if( $current_page_id == $form_page_id ) {
+			$template =  get_stylesheet_directory() . '/template-nuevo-local.php';
+		}
+		return $template;
+	}
+}
+
 // =============================================================================
 // MARKUP
 // =============================================================================
@@ -70,13 +97,25 @@ function pedigree_more_button($args){
 		'faw'			=> 'fas fa-caret-right',
 		'classes'		=> '',
 		'id'			=> '',
+		'attrs'			=> array(),
+		'element'		=> 'div',
 	);
 	$settings = wp_parse_args($args, $defaults);
 	extract($settings);
 	if($text || $content):
 		$id_attr = $id ? "id=$id" : '';
+
+	$html_attrs = '';
+	if(is_array($attrs) && !empty($attrs)){
+		foreach($attrs as $attr_name => $attr_val){
+			if( $attr_name != 'class' && $attr_name != 'id' ){
+				$html_attrs .= esc_html($attr_name) . '="' . esc_attr($attr_val) . '" ';
+			}
+		}
+	}
+
 	?>
-	<div <?php echo $id_attr; ?> class="more-button pedigree-main-color <?php echo esc_attr($classes); ?>">
+	<<?php echo $element;?> <?php echo $id_attr; ?> class="more-button pedigree-main-color <?php echo esc_attr($classes); ?>" <?php echo $html_attrs; ?>>
 		<?php if( $url ): ?><a href="<?php echo esc_attr($url); ?>"></a><?php endif; ?>
 		<?php if( $content ): echo $content; ?>
 		<?php else: ?>
@@ -85,7 +124,7 @@ function pedigree_more_button($args){
 		<?php if( $icon ): ?>
 		<i class="<?php echo esc_attr($faw); ?>"></i>
 		<?php endif; ?>
-	</div>
+	</<?php echo $element;?>>
 	<?php
 	endif;
 }
@@ -106,11 +145,14 @@ function pedigree_product_prev_box( $product_ID, $args = array() ){
 		'show_buy_button'	=> true,
 		'info_text'			=>	__('MÁS INFO', 'pedigree-genosha'),
 		'buy_text'			=>	__('COMPRAR', 'pedigree-genosha'),
+		'col_size'			=> 4,
 	);
 	$settings = wp_parse_args( $args, $settings );
 	extract($settings);
+
+	$size_class = ($col_size >= 1 && $col_size <= 12) ? "col-md-$col_size" : "col-md-4";
 	?>
-	<div class="col-12 col-sm-6 col-md-4 post-box" data-cats="<?php echo esc_attr(json_encode($cats_ids)); ?>">
+	<div class="col-12 col-sm-6 <?php echo $size_class; ?> post-box" data-cats="<?php echo esc_attr(json_encode($cats_ids)); ?>">
 		<div class="product-image" data-images="<?php echo esc_attr(json_encode($peaces_images)); ?>">
 			<a href="<?php echo $permalink; ?>">
 				<img class="hover-twinkle" src="<?php echo $img_src; ?>"/>
@@ -237,23 +279,54 @@ function get_place_data_attributes( $place_data ){
 }
 
 function predigree_get_places(){
-	$csv_attachment_url = get_theme_mod('pedigree-branches-csv', '');
-	$csv_attachment_id = rb_get_attachment_id($csv_attachment_url);
-	$csv_attachment_path = get_attached_file( $csv_attachment_id );
+	$locales_posts = get_posts(array(
+		'numberposts'	=> -1,
+		'post_type'		=> 'pedigree-local',
+		'post_status'   => 'publish',
+	));
 
-	$csv_file = null;
+	$places = array();
+	if( is_array($locales_posts) ){
+		foreach( $locales_posts as $local_post ){
+			$local_data = get_post_meta( $local_post->ID, 'pedigree_local_data', true );
+			$local_geo = get_post_meta( $local_post->ID, 'pedigree_local_geolocation', true );
+			$terms = get_the_terms( $local_post->ID, 'pedigree-fantasy-name' );
+			$fantasia_term = is_array($terms) ? $terms[0] : null;
+			$url = $fantasia_term ? get_term_meta( $fantasia_term->term_id, '_pd_fantasy_name_web', true ) : '';
 
-	if(file_exists($csv_attachment_path)){
-		$csv_file = file($csv_attachment_path);
-		if( is_array($csv_file) ){
-			//Remove the first line, that contains the columns titles
-			array_shift($csv_file);
-			//Change the lines from the file to an array of places
-			$csv_file = array_map("get_clean_branch_row_data", $csv_file);
+			if( $local_data && $local_geo ){
+				$map_data = array(
+					'sucursal'		=>	$local_data['sucursal'],
+					'address'		=>	$local_data['address'],
+					'localidad'		=>	$local_data['localidad'],
+					'prov'			=>	$local_data['provincia'],
+					'name'			=>	$local_post->post_title,
+					'lat'			=>	$local_geo['lat'],
+					'lng'			=>	$local_geo['long'],
+					'url'			=>	$url,
+					'phone'			=>	$local_data['phone'],
+					'timetable'		=>  $local_data['timetable'],
+					'email'			=>	$local_data['email'],
+				);
+
+				array_push($places, $map_data);
+			}
 		}
 	}
 
-	return $csv_file;
+	return $places;
+}
+
+function pd_create_locales_from_options_csv(){
+	$csv_attachment_url = get_theme_mod('pedigree-branches-csv', '');
+	$csv_attachment_id = rb_get_attachment_id($csv_attachment_url);
+	$csv_attachment_path = get_attached_file( $csv_attachment_id );
+	pd_create_locales_from_csv($csv_attachment_path);
+}
+
+if( is_admin() ){
+	// add_action('init', 'pd_delete_all_locales_data');
+	// add_action('init', 'pd_create_locales_from_options_csv');
 }
 
 // =============================================================================
@@ -296,7 +369,7 @@ function pedigree_get_products_filter(){
 	if( is_array($age_cats) && !empty($age_cats) ){
 		$age_options = array();
 		if( $age_cats['puppy'] )
-			array_push($age_options, array( 'value' => $age_cats['puppy'], 'title' => 'Cachorro' ));
+			array_push($age_options, array( 'value' => $age_cats['puppy'], 'title' => 'Gatito' ));
 		if( $age_cats['adult'] )
 			array_push($age_options, array( 'value' => $age_cats['adult'], 'title' => 'Adulto' ));
 		if( $age_cats['senior'] )
@@ -373,6 +446,20 @@ function print_stores_logos( $stores ){
 	<?php
 	endif;
 }
+
+// =============================================================================
+// IMAGES
+// =============================================================================
+function pd_get_random_sad_image(){
+	$rand_num = rand(1,4);
+	return get_template_directory_uri() . "/assets/img/esp/sad-$rand_num.png";
+}
+
+function pd_get_random_happy_image(){
+	$rand_num = rand(1,3);
+	return get_template_directory_uri() . "/assets/img/esp/happy-$rand_num.png";
+}
+
 // =============================================================================
 // FUNCTIONS
 // =============================================================================
@@ -404,18 +491,22 @@ function get_menu_items_by_registered_slug($menu_slug) {
 
 	$get_childs = function (&$items, &$current) use (&$get_childs){
 		$current->childrens = array();
-		foreach($items as $key => $item){
-			if($item->ID != $current->ID && $item->menu_item_parent == $current->ID){
-				$get_childs($items, $item);
-				unset($items[$key]);
-				array_push($current->childrens, $item);
+		if( is_array($items) ){
+			foreach($items as $key => $item){
+				if($item->ID != $current->ID && $item->menu_item_parent == $current->ID){
+					$get_childs($items, $item);
+					unset($items[$key]);
+					array_push($current->childrens, $item);
+				}
 			}
 		}
 	};
 
 	$list_to_tree = function ($list) use ($get_childs){
-		foreach($list as $item){
-			$get_childs($list, $item);
+		if( is_array($list) ){
+			foreach($list as $item){
+				$get_childs($list, $item);
+			}
 		}
 		return $list;
 	};
